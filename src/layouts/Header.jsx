@@ -10,7 +10,7 @@ const HeaderWrapper = styled.div`
   top: 0;
   left: 0;
   background-color: #e3350d;
-  box-shadow: 1px 1px 3px 1px rgba(255, 255, 255, 0.5);
+  box-shadow: 1px 1px 3px 1px rgba(255 197 0 / 0.5);
   background-image: linear-gradient(
       rgba(179, 42, 10, 0.2) 1px 25%,
       transparent 1px

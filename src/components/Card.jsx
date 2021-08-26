@@ -15,11 +15,17 @@ const CardWrapper = styled.div`
 `;
 
 const CardContent = styled.div`
+  cursor: pointer;
   margin: 5px;
-  padding: 5px;
+  padding: 3px;
   background: whitesmoke;
   border: 2px solid #ffc500;
   border-radius: 5px;
+  transition: 275ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 `;
 
 const CardTitle = styled.h5`
@@ -62,16 +68,13 @@ const CardCaption = styled.p`
   border-bottom-right-radius: 5px;
 `;
 
-const Card = () => {
+const Card = ({ name, image }) => {
   return (
     <CardWrapper>
       <CardContent>
-        <CardTitle>Bulbasaur</CardTitle>
+        <CardTitle>{name}</CardTitle>
         <CardImage>
-          <img
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-            alt="sprite"
-          />
+          <img src={image} alt={name} />
         </CardImage>
         <CardCaption>Owned: 1</CardCaption>
       </CardContent>
