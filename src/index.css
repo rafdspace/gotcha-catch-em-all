@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 body {
   margin: 0;
   color: #303030;
-  font-family: "Roboto", sans-serif
+  font-family: "Roboto", sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -18,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   font-weight: 200;
   line-height: 120%;
   letter-spacing: 1.2;
@@ -51,7 +51,7 @@ h6 {
 p {
   font-size: 12px;
   font-weight: normal;
-  font-family: "Roboto", sans-serif
+  font-family: "Roboto", sans-serif;
 }
 
 @media screen and (min-width: 680px) {

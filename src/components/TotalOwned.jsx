@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Button from "./Button";
 
 const TotalOwnedWrapper = styled.div`
-  padding: 15px;
+  padding: 10px;
   color: #efefef;
   border: 2px solid #efefef;
   border-radius: 5px;

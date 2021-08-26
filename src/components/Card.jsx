@@ -1,0 +1,74 @@
+import React from "react";
+import styled from "@emotion/styled";
+
+const CardWrapper = styled.div`
+  flex-basis: 50%;
+`;
+
+const CardContent = styled.div`
+  margin: 5px;
+  padding: 5px;
+  background: whitesmoke;
+  border: 2px solid #ffc500;
+  //   box-shadow: inset 0 0 0 2px #e3350d;
+  border-radius: 5px;
+`;
+
+const CardTitle = styled.h5`
+  widht: 100%;
+  margin: 0;
+  background-color: #e3350d;
+  text-align: center;
+  padding: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+`;
+
+const CardImage = styled.div`
+  widht: 100%;
+  height: 100px;
+  background-color: #222629;
+  background-image: linear-gradient(rgba(179, 42, 10, 0.4) 1px, transparent 1px),
+    linear-gradient(to right, rgba(179, 42, 10, 0.4) 1px, transparent 1px);
+  background-size: 10px 10px;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`;
+
+const CardCaption = styled.p`
+  margin: 0;
+  padding: 5px;
+  background-color: #ffc500;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  letter-spacing: 1.2px;
+  font-size: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+`;
+
+const Card = () => {
+  return (
+    <CardWrapper>
+      <CardContent>
+        <CardTitle>Bulbasaur</CardTitle>
+        <CardImage>
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+            alt="sprite"
+          />
+        </CardImage>
+        <CardCaption>Owned: 1</CardCaption>
+      </CardContent>
+    </CardWrapper>
+  );
+};
+
+export default Card;
