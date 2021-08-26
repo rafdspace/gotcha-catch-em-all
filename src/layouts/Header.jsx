@@ -7,7 +7,13 @@ import Button from "../components/Button";
 const HeaderWrapper = styled.div`
   width: 100%;
   background-color: #e3350d;
-  box-shadow: 1px 1px 3px 1px rgba(#cccccc, 0.2);
+  box-shadow: 1px 1px 3px 1px rgba(#cccccc, 1);
+  background-image: linear-gradient(
+      rgba(179, 42, 10, 0.2) 1px 25%,
+      transparent 1px
+    ),
+    linear-gradient(to right, rgba(179, 42, 10, 0.2) 1px, transparent 1px);
+  background-size: 5px 5px;
 `;
 
 const HeaderInner = styled.div`
