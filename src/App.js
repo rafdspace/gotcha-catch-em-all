@@ -1,9 +1,14 @@
+import Header from "./components/Header";
+import styled from "@emotion/styled";
 
-function App() {
+const Screen = styled.div`
+  width:100vw;
+`
+const App = () => {
   return (
-    <div>
-      <h1>Test</h1>
-    </div>
+    <Screen>
+      <Header />
+    </Screen>
   );
 }
 
