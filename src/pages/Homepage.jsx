@@ -1,14 +1,11 @@
 import React from "react";
-import styled from "@emotion/styled";
-import ScreenContainer from "../components/ScreenContainer";
+import TotalOwned from "../components/TotalOwned";
 import Page from "../layouts/Page";
 
 const Homepage = () => {
   return (
     <Page>
-      <ScreenContainer>
-        <p>asd</p>
-      </ScreenContainer>
+      <TotalOwned />
     </Page>
   );
 };
