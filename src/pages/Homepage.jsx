@@ -8,7 +8,7 @@ import GET_POKEMONS from "../graphql/getPokemon";
 
 const Homepage = () => {
   const { data, loading } = useQuery(GET_POKEMONS, {
-    variables: { limit: 20, offset: 0 },
+    variables: { limit: 1180, offset: 0 },
   });
 
   return (
