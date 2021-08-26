@@ -2,7 +2,16 @@ import React from "react";
 import styled from "@emotion/styled";
 
 const CardWrapper = styled.div`
-  flex-basis: 50%;
+  flex-basis: 100%;
+  @media screen and (min-width: 320px) {
+    flex-basis: 50%;
+  }
+  @media screen and (min-width: 720px) {
+    flex-basis: 25%;
+  }
+  @media screen and (min-width: 1024px) {
+    flex-basis: 20%;
+  }
 `;
 
 const CardContent = styled.div`
@@ -10,7 +19,6 @@ const CardContent = styled.div`
   padding: 5px;
   background: whitesmoke;
   border: 2px solid #ffc500;
-  //   box-shadow: inset 0 0 0 2px #e3350d;
   border-radius: 5px;
 `;
 
