@@ -1,10 +1,7 @@
-import Header from "./components/Header";
-import styled from "@emotion/styled";
-import Footer from "./components/Footer";
+import Header from "./layouts/Header";
+import Footer from "./layouts/Footer";
+import Screen from "./layouts/Screen";
 
-const Screen = styled.div`
-  width:100vw;
-`
 const App = () => {
   return (
     <Screen>

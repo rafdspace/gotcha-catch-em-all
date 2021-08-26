@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import ScreenContainer from "./ScreenContainer";
+import ScreenContainer from "../components/ScreenContainer";
 
 const FooterWrapper = styled.div`
   width: 100%;

@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled";
-import ScreenContainer from "./ScreenContainer";
+import ScreenContainer from "../components/ScreenContainer";
 import Logo from "../assets/logo-pokemon.png";
-import Button from "./Button";
+import Button from "../components/Button";
 
 const HeaderWrapper = styled.div`
   width: 100%;
   background-color: #e3350d;
-  box-shadow: 1px 1px 3px 1px #cccccc;
+  box-shadow: 1px 1px 3px 1px rgba(#cccccc, 0.2);
 `;
 
 const HeaderInner = styled.div`
