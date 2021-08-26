@@ -12,7 +12,7 @@ const MyButton = styled.button`
   text-transform: capitalize;
   width: 100%;
   cursor: pointer;
-  background-color: #${(props) => props.color};
+  background-color: ${(props) => props.color};
 `;
 
 const Button = ({ text, color }) => {

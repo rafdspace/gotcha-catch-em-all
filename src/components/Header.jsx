@@ -47,7 +47,7 @@ const Header = () => {
           <HeaderNav>
             {/* <HeaderNavItem>Home</HeaderNavItem> */}
             <HeaderNavItem>
-              <Button color="ffc500" text="My pokemon" />
+              <Button color="#ffc500" text="My pokemon" />
             </HeaderNavItem>
           </HeaderNav>
         </HeaderInner>
