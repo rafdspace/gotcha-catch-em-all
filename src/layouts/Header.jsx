@@ -6,6 +6,9 @@ import Button from "../components/Button";
 
 const HeaderWrapper = styled.div`
   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: #e3350d;
   box-shadow: 1px 1px 3px 1px rgba(#cccccc, 1);
   background-image: linear-gradient(
