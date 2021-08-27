@@ -6,6 +6,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import configureStore from "./store/configure-store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+import DetailPokemon from "./pages/DetailPokemon";
 const apllotClient = new ApolloClient({
   uri: "https://graphql-pokeapi.vercel.app/api/graphql",
   cache: new InMemoryCache(),
@@ -20,7 +21,8 @@ const App = () => {
         <ApolloProvider client={apllotClient}>
           <Screen>
             <Header />
-            <Homepage />
+            <DetailPokemon />
+            {/* <Homepage /> */}
             <Footer />
           </Screen>
         </ApolloProvider>
