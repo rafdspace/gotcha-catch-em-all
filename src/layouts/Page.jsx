@@ -8,15 +8,23 @@ const PageWrapper = styled.div`
 `;
 
 const PageContent = styled.div`
-  padding: 15px;
   height: 100%;
+  display: flex;
+`;
+const PageInner = styled.div`
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Page = ({ children }) => {
   return (
     <PageWrapper>
       <ScreenContainer>
-        <PageContent>{children}</PageContent>
+        <PageContent>
+          <PageInner>{children}</PageInner>
+        </PageContent>
       </ScreenContainer>
     </PageWrapper>
   );

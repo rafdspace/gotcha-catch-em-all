@@ -3,6 +3,8 @@ import styled from "@emotion/styled";
 
 const CardWrapper = styled.div`
   flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
   @media screen and (min-width: 320px) {
     flex-basis: 50%;
   }
@@ -15,6 +17,7 @@ const CardWrapper = styled.div`
 `;
 
 const CardContent = styled.div`
+  flex: 1;
   cursor: pointer;
   margin: 5px;
   padding: 3px;
@@ -26,6 +29,18 @@ const CardContent = styled.div`
   &:hover {
     transform: translateY(-2px);
   }
+`;
+
+const CardInner = styled.div`
+  height: 100%;
+  background-color: #222629;
+  border-radius: 5px;
+  background-image: linear-gradient(rgba(179, 42, 10, 0.4) 1px, transparent 1px),
+    linear-gradient(to right, rgba(179, 42, 10, 0.4) 1px, transparent 1px);
+  background-size: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const CardTitle = styled.h5`
@@ -41,10 +56,7 @@ const CardTitle = styled.h5`
 const CardImage = styled.div`
   widht: 100%;
   height: 100px;
-  background-color: #222629;
-  background-image: linear-gradient(rgba(179, 42, 10, 0.4) 1px, transparent 1px),
-    linear-gradient(to right, rgba(179, 42, 10, 0.4) 1px, transparent 1px);
-  background-size: 10px 10px;
+  margin: 5px 0;
 
   & > img {
     width: 100%;
@@ -72,11 +84,13 @@ const Card = ({ name, image }) => {
   return (
     <CardWrapper>
       <CardContent>
-        <CardTitle>{name}</CardTitle>
-        <CardImage>
-          <img src={image} alt={name} />
-        </CardImage>
-        <CardCaption>Owned: 1</CardCaption>
+        <CardInner>
+          <CardTitle>{name}</CardTitle>
+          <CardImage>
+            <img src={image} alt={name} />
+          </CardImage>
+          <CardCaption>Owned: 1</CardCaption>
+        </CardInner>
       </CardContent>
     </CardWrapper>
   );

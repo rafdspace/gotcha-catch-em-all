@@ -8,6 +8,7 @@ const CardListWrapper = styled.div`
   border: 2px solid #efefef;
   border-radius: 5px;
   background-color: #222629;
+  flex: 1;
 `;
 
 const CardListContent = styled.div`
