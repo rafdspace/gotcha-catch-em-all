@@ -79,23 +79,27 @@ const DisplayPokemonTypeItem = styled.div`
   }
 `;
 
-const DisplayPokemon = () => {
+const DisplayPokemon = ({ data, loading }) => {
   return (
     <DisplayPokemonWrapper>
       <DisplayPokemonContent>
         <DisplayPokemonInner>
-          <DisplayPokemonTitle>{"name"}</DisplayPokemonTitle>
+          <DisplayPokemonTitle>{!loading ? data.name : ""}</DisplayPokemonTitle>
           <DisplayPokemonImage>
-            <img
-              src={
-                "https://img.pokemondb.net/sprites/x-y/normal/blaziken-f.png"
-              }
-              alt={"name"}
-            />
+            {!loading ? (
+              <img src={data.sprites.front_default} alt={"name"} />
+            ) : (
+              "is-loading"
+            )}
           </DisplayPokemonImage>
           <DisplayPokemonType>
-            <DisplayPokemonTypeItem>asd</DisplayPokemonTypeItem>
-            <DisplayPokemonTypeItem>asd</DisplayPokemonTypeItem>
+            {!loading
+              ? data.types.map((item, index) => (
+                  <DisplayPokemonTypeItem key={index}>
+                    {item.type.name}
+                  </DisplayPokemonTypeItem>
+                ))
+              : null}
           </DisplayPokemonType>
         </DisplayPokemonInner>
       </DisplayPokemonContent>
