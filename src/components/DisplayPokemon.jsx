@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 const DisplayPokemonWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 50%;
+  height: 40vh;
   width: 100%;
 `;
 

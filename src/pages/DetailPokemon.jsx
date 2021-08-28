@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import DisplayPokemon from "../components/DisplayPokemon";
 import { useQuery } from "@apollo/client";
 import GET_POKEMON_DETAIL from "../graphql/getPokemonDetail";
+import InfoTabs from "../components/InfoTabs";
 
 const DetailWrapper = styled.div`
   padding: 10px;
@@ -11,7 +12,7 @@ const DetailWrapper = styled.div`
   border: 2px solid #efefef;
   border-radius: 5px;
   background-color: #222629;
-  flex: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -25,7 +26,7 @@ const DetailPokemon = () => {
     <Page>
       <DetailWrapper>
         <DisplayPokemon data={data?.pokemon} loading={loading} />
-        <p style={{ padding: "10px", margin: "0" }}>Tab</p>
+        <InfoTabs />
       </DetailWrapper>
     </Page>
   );
