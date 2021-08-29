@@ -46,6 +46,7 @@ const Item = styled.div`
 `;
 
 const TabsDetailContent = styled.div`
+  flex: 1;
   background-color: #383838;
   padding: 12px 10px 10px 10px;
 `;

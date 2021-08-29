@@ -5,12 +5,13 @@ import DisplayPokemon from "../components/DisplayPokemon";
 import { useQuery } from "@apollo/client";
 import GET_POKEMON_DETAIL from "../graphql/getPokemonDetail";
 import TabsDetail from "../components/TabsDetail";
-import TabMove from "../components/TabMove";
+import TabMoves from "../components/TabMoves";
 import TabInfo from "../components/TabInfo";
 import TabOwned from "../components/TabOwned";
 import { useState } from "react";
 import Pokeball from "../components/Pokeball";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const DetailWrapper = styled.div`
   padding: 10px;
@@ -31,6 +32,9 @@ const DetailPokemon = () => {
     { tab: "moves", color: "#30A7D7" },
     { tab: "owned", color: "#4DAD5B" },
   ];
+  const ownedPokemon = useSelector((state) => state.ownedPokemons).filter(
+    (item) => item.species === species
+  );
 
   const { data, loading } = useQuery(GET_POKEMON_DETAIL, {
     variables: { name: species },
@@ -53,9 +57,9 @@ const DetailPokemon = () => {
           {tabActive === 0 ? (
             <TabInfo data={data?.pokemon} loading={loading} />
           ) : tabActive === 1 ? (
-            <TabMove data={data?.pokemon} loading={loading} />
+            <TabMoves data={data?.pokemon} loading={loading} />
           ) : (
-            <TabOwned />
+            <TabOwned data={ownedPokemon} />
           )}
         </TabsDetail>
       </DetailWrapper>

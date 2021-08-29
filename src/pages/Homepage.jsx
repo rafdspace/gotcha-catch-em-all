@@ -6,10 +6,11 @@ import Card from "../components/Card";
 import { useQuery } from "@apollo/client";
 import GET_POKEMONS from "../graphql/getPokemon";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Homepage = () => {
   const history = useHistory();
-
+  const ownedPokemons = useSelector((state) => state.ownedPokemons);
   const { data, loading } = useQuery(GET_POKEMONS, {
     variables: { limit: 1180, offset: 0 },
   });
@@ -27,6 +28,9 @@ const Homepage = () => {
                 name={name}
                 image={image}
                 onClick={() => history.push(`/pokemon/${name}`)}
+                owned={
+                  ownedPokemons.filter((item) => item.species === name).length
+                }
               />
             ))}
       </CardList>

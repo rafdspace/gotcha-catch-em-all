@@ -4,52 +4,17 @@ import Page from "../layouts/Page";
 import TotalOwned from "../components/TotalOwned";
 import CardList from "../components/CardList";
 import Card from "../components/Card";
+import { useSelector } from "react-redux";
 
 const MyPokemonPage = () => {
+  const ownedPokemons = useSelector((state) => state.ownedPokemons);
   return (
     <Page>
       <TotalOwned />
       <CardList>
-        <Card
-          name="test"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
-        />
-        <Card
-          name="test"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
-        />
-        <Card
-          name="test"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
-        />
-        <Card
-          name="test"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
-        />
-        <Card
-          name="test"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
-        />
-        <Card
-          name="test"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
-        />
-        <Card
-          name="test"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
-        />
-        <Card
-          name="test"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
-        />
-        <Card
-          name="test"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
-        />
-        <Card
-          name="test"
-          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
-        />
+        {ownedPokemons.map((item, index) => (
+          <Card key={index} name={item.name} image={item.sprite} />
+        ))}
       </CardList>
     </Page>
   );

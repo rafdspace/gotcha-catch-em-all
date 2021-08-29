@@ -40,7 +40,8 @@ const CardInner = styled.div`
   background-size: 10px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
+  ${({ owned }) => (!owned ? `justify-content: space-between;` : "")}
 `;
 
 const CardTitle = styled.h5`
@@ -56,7 +57,7 @@ const CardTitle = styled.h5`
 const CardImage = styled.div`
   widht: 100%;
   height: 100px;
-  margin: 5px 0;
+  margin: 10px 0;
 
   & > img {
     width: 100%;
@@ -80,16 +81,16 @@ const CardCaption = styled.p`
   border-bottom-right-radius: 5px;
 `;
 
-const Card = ({ name, image, onClick }) => {
+const Card = ({ name, image, owned, onClick }) => {
   return (
     <CardWrapper onClick={() => onClick()}>
       <CardContent>
-        <CardInner>
+        <CardInner owned>
           <CardTitle>{name}</CardTitle>
           <CardImage>
             <img src={image} alt={name} />
           </CardImage>
-          <CardCaption>Owned: 1</CardCaption>
+          {!!owned && <CardCaption>Owned: {owned}</CardCaption>}
         </CardInner>
       </CardContent>
     </CardWrapper>
