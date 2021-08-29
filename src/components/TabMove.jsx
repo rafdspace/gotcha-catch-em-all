@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 const TabMoveWrapper = styled.div`
-  widht: 100%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
 `;
@@ -24,6 +24,7 @@ const TabMoveItem = styled.p`
     padding: 5px 15px;
   }
 `;
+
 const TabMove = ({ data, loading }) => {
   return (
     <TabMoveWrapper>

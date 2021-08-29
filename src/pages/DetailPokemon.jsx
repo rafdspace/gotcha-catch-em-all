@@ -6,6 +6,7 @@ import { useQuery } from "@apollo/client";
 import GET_POKEMON_DETAIL from "../graphql/getPokemonDetail";
 import InfoTabs from "../components/InfoTabs";
 import TabMove from "../components/TabMove";
+import TabInfo from "../components/TabInfo";
 
 const DetailWrapper = styled.div`
   padding: 10px;
@@ -23,14 +24,13 @@ const DetailPokemon = () => {
     variables: { name: "blaziken" },
   });
 
-  console.log(data);
-
   return (
     <Page>
       <DetailWrapper>
         <DisplayPokemon data={data?.pokemon} loading={loading} />
         <InfoTabs>
-          <TabMove data={data?.pokemon} loading={loading} />
+          {/* <TabMove data={data?.pokemon} loading={loading} /> */}
+          <TabInfo data={data?.pokemon} loading={loading} />
         </InfoTabs>
       </DetailWrapper>
     </Page>

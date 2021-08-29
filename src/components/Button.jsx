@@ -16,7 +16,8 @@ const MyButton = styled.button`
 `;
 
 const Button = ({ text, color }) => {
-  return <MyButton color={color}>{text}</MyButton>;
+  const onclick = () => {console.log('click')}
+  return <MyButton color={color} onClick={onclick}>{text}</MyButton>;
 };
 
 export default Button;
