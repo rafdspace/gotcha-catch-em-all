@@ -15,9 +15,12 @@ const MyButton = styled.button`
   background-color: ${(props) => props.color};
 `;
 
-const Button = ({ text, color }) => {
-  const onclick = () => {console.log('click')}
-  return <MyButton color={color} onClick={onclick}>{text}</MyButton>;
+const Button = ({ text, color, onClick }) => {
+  return (
+    <MyButton color={color} onClick={() => onClick()}>
+      {text}
+    </MyButton>
+  );
 };
 
 export default Button;

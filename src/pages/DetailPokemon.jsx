@@ -9,6 +9,7 @@ import TabMove from "../components/TabMove";
 import TabInfo from "../components/TabInfo";
 import TabOwned from "../components/TabOwned";
 import { useState } from "react";
+import Pokeball from "../components/Pokeball";
 
 const DetailWrapper = styled.div`
   padding: 10px;
@@ -41,6 +42,7 @@ const DetailPokemon = () => {
   return (
     <Page>
       <DetailWrapper>
+        <Pokeball />
         <DisplayPokemon data={data?.pokemon} loading={loading} />
         <InfoTabs
           data={dataTabs}
