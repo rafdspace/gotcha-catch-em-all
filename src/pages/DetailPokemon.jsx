@@ -10,6 +10,7 @@ import TabInfo from "../components/TabInfo";
 import TabOwned from "../components/TabOwned";
 import { useState } from "react";
 import Pokeball from "../components/Pokeball";
+import { useParams } from "react-router-dom";
 
 const DetailWrapper = styled.div`
   padding: 10px;
@@ -23,8 +24,8 @@ const DetailWrapper = styled.div`
 `;
 
 const DetailPokemon = () => {
+  const { species } = useParams();
   const [tabActive, setTabActive] = useState(0);
-
   const dataTabs = [
     { tab: "info", color: "#E3350D" },
     { tab: "moves", color: "#30A7D7" },
@@ -32,7 +33,7 @@ const DetailPokemon = () => {
   ];
 
   const { data, loading } = useQuery(GET_POKEMON_DETAIL, {
-    variables: { name: "blaziken" },
+    variables: { name: species },
   });
 
   const onChangeTab = (tab) => {

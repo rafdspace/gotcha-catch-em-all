@@ -27,7 +27,6 @@ const DisplayPokemonInner = styled.div`
 `;
 
 const DisplayPokemonTitle = styled.h4`
-  width: 100%;
   margin: 0;
   background-color: #e3350d;
   text-align: center;

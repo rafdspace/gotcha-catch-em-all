@@ -40,10 +40,11 @@ const PokeballBgContent = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 80%;
+  bottom: 70px;
   left: 50%;
   transform: translate(-50%, -50%);
   align-items: center;
+  text-align: center;
 
   & > button {
     width: fit-content;
@@ -61,9 +62,7 @@ const Pokeball = () => {
     <PokeballWrapper>
       <PokeballBg isShow={show}>
         <PokeballBgContent>
-          <PokeballBgText>
-            Click pokeball to capture this pokemon
-          </PokeballBgText>
+          <PokeballBgText>Click pokeball to catch this pokemon</PokeballBgText>
           <Button text="ok" onClick={() => setShow(false)} />
         </PokeballBgContent>
       </PokeballBg>

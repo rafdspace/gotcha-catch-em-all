@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 
 const MyButton = styled.button`
   font-family: "Roboto", sans-serif;
+  font-size: 12px;
   padding: 10px 15px;
   text-align: center;
   box-shadow: inset 0 0 1px #ffffff;

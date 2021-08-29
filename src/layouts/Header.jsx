@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import ScreenContainer from "../components/ScreenContainer";
 import Logo from "../assets/logo-pokemon.png";
 import Button from "../components/Button";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -44,21 +45,40 @@ const HeaderNav = styled.div`
 const HeaderNavItem = styled.div`
   margin: 0 5px;
   color: #ffffff;
+  font-size: 12px;
+
+  & > div {
+    padding: 10px;
+    cursor: pointer;
+  }
 `;
 
 const Header = () => {
+  const history = useHistory();
+  const location = useLocation();
   return (
     <HeaderWrapper>
       <ScreenContainer>
         <HeaderInner>
-          <HeaderImage>
-            <img src={Logo} alt="Logo" />
-          </HeaderImage>
+          <Link to="/">
+            <HeaderImage>
+              <img src={Logo} alt="Logo" />
+            </HeaderImage>
+          </Link>
           <HeaderNav>
-            {/* <HeaderNavItem>Home</HeaderNavItem> */}
-            <HeaderNavItem>
-              <Button color="#ffc500" text="My pokemon" />
-            </HeaderNavItem>
+            {location.pathname === "/my-pokemon" ? (
+              <HeaderNavItem onClick={() => history.push("/")}>
+                <div>Home</div>
+              </HeaderNavItem>
+            ) : (
+              <HeaderNavItem>
+                <Button
+                  color="#ffc500"
+                  text="My pokemon"
+                  onClick={() => history.push("/my-pokemon")}
+                />
+              </HeaderNavItem>
+            )}
           </HeaderNav>
         </HeaderInner>
       </ScreenContainer>

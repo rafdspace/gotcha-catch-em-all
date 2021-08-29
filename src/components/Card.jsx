@@ -80,9 +80,9 @@ const CardCaption = styled.p`
   border-bottom-right-radius: 5px;
 `;
 
-const Card = ({ name, image }) => {
+const Card = ({ name, image, onClick }) => {
   return (
-    <CardWrapper>
+    <CardWrapper onClick={() => onClick()}>
       <CardContent>
         <CardInner>
           <CardTitle>{name}</CardTitle>

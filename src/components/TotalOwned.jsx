@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Button from "./Button";
+import { useHistory } from "react-router-dom";
 
 const TotalOwnedWrapper = styled.div`
   padding: 10px;
@@ -14,6 +15,10 @@ const TotalOwnedContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  & > button {
+    width: fit-content;
+  }
 `;
 
 const TotalOwnedText = styled.h4`
@@ -24,14 +29,17 @@ const TotalOwnedText = styled.h4`
 const TotalOwnedActions = styled.div``;
 
 const TotalOwned = ({ action }) => {
+  const history = useHistory();
   return (
     <TotalOwnedWrapper>
       <TotalOwnedContent>
         <TotalOwnedText>You owned 0 Pokemon</TotalOwnedText>
         {action && (
-          <TotalOwnedActions>
-            <Button color="#ffc500" text="Manage" />
-          </TotalOwnedActions>
+          <Button
+            color="#ffc500"
+            text="Manage"
+            onClick={() => history.push("/my-pokemon")}
+          />
         )}
       </TotalOwnedContent>
     </TotalOwnedWrapper>

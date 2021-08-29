@@ -10,16 +10,46 @@ const MyPokemonPage = () => {
     <Page>
       <TotalOwned />
       <CardList>
-        <Card name="test" />
-        <Card name="test" />
-        <Card name="test" />
-        <Card name="test" />
-        <Card name="test" />
-        <Card name="test" />
-        <Card name="test" />
-        <Card name="test" />
-        <Card name="test" />
-        <Card name="test" />
+        <Card
+          name="test"
+          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
+        />
+        <Card
+          name="test"
+          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
+        />
+        <Card
+          name="test"
+          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
+        />
+        <Card
+          name="test"
+          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
+        />
+        <Card
+          name="test"
+          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
+        />
+        <Card
+          name="test"
+          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
+        />
+        <Card
+          name="test"
+          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
+        />
+        <Card
+          name="test"
+          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
+        />
+        <Card
+          name="test"
+          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
+        />
+        <Card
+          name="test"
+          image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png"
+        />
       </CardList>
     </Page>
   );

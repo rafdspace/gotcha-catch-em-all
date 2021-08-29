@@ -29,19 +29,20 @@ const TabInfoAbilitiesContent = ({ ability }) => {
     variables: { ability },
   });
 
+  console.log("data", data);
+
   const title = data?.ability.response.name;
 
   const description = data?.ability.response.effect_entries.find(
     (item) => item.language.name === "en"
   );
-
   if (loading) return null;
 
   return (
     <TabInfoAbilitiesContentWrapper>
       <TabInfoAbilitiesContentTitle>{title}</TabInfoAbilitiesContentTitle>
       <TabInfoAbilitiesContentDescription>
-        {description.short_effect}
+        {description?.short_effect}
       </TabInfoAbilitiesContentDescription>
     </TabInfoAbilitiesContentWrapper>
   );
