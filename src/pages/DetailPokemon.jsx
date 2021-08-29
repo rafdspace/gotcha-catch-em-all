@@ -42,7 +42,11 @@ const DetailPokemon = () => {
     <Page>
       <DetailWrapper>
         <DisplayPokemon data={data?.pokemon} loading={loading} />
-        <InfoTabs data={dataTabs} changeTab={onChangeTab}>
+        <InfoTabs
+          data={dataTabs}
+          currentTab={tabActive}
+          changeTab={onChangeTab}
+        >
           {tabActive === 0 ? (
             <TabInfo data={data?.pokemon} loading={loading} />
           ) : tabActive === 1 ? (

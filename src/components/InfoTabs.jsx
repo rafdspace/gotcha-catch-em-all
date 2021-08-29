@@ -50,13 +50,18 @@ const InfoTabsContent = styled.div`
   padding: 12px 10px 10px 10px;
 `;
 
-const InfoTabs = ({ data, changeTab, children }) => {
+const InfoTabs = ({ data, currentTab, changeTab, children }) => {
   return (
     <InfoTabsWrapper>
       <InfoTabsInner>
         <InfoTabsItem>
           {data.map(({ tab, color }, index) => (
-            <Item key={index} color={color} onClick={() => changeTab(index)}>
+            <Item
+              key={index}
+              isActive={currentTab === index}
+              color={color}
+              onClick={() => changeTab(index)}
+            >
               {tab}
             </Item>
           ))}
