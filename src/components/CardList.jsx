@@ -2,6 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 
 const CardListWrapper = styled.div`
+  display: flex;
+  justify-content: center;
   margin-top: 15px;
   padding: 10px;
   color: #efefef;

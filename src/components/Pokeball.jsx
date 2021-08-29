@@ -11,7 +11,7 @@ const PokeballContent = styled.div`
   bottom: 0%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 3;
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -27,13 +27,15 @@ const PokeballBg = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  top: -100%;
+  top: 0;
   left: 0;
+  opacity: 0;
+  visibility: hidden;
   background: rgba(34 38 41 / 0.8);
-  z-index: 9;
-  transition: 275ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  ${({ isShow }) => isShow && `top: 0;`}
+  ${({ isShow }) => isShow && `opacity:1; visibility:visible;`}
 `;
 
 const PokeballBgContent = styled.div`
@@ -56,7 +58,7 @@ const PokeballBgText = styled.p`
 `;
 
 const Pokeball = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   return (
     <PokeballWrapper>

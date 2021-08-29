@@ -34,7 +34,7 @@ const TabMovesPlaceholder = styled.p`
 const TabMoves = ({ data }) => {
   return (
     <TabMovesWrapper>
-      {!data.length ? (
+      {data.length === 0 ? (
         <TabMovesPlaceholder>Moves not found</TabMovesPlaceholder>
       ) : (
         data?.moves.map((item, index) => (

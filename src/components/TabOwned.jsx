@@ -18,7 +18,7 @@ const TabOwnedPlaceholder = styled.p`
 const TabOwned = ({ data }) => {
   return (
     <TabOwnedWrapper>
-      {!data.length ? (
+      {data.length === 0 ? (
         <TabOwnedPlaceholder>
           You don't have this pokemon yet
         </TabOwnedPlaceholder>

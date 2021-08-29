@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "@emotion/styled";
 import CardList from "../components/CardList";
 import TotalOwned from "../components/TotalOwned";
 import Page from "../layouts/Page";
@@ -7,6 +8,7 @@ import { useQuery } from "@apollo/client";
 import GET_POKEMONS from "../graphql/getPokemon";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Loading from "../components/Loading";
 
 const Homepage = () => {
   const history = useHistory();
@@ -20,19 +22,21 @@ const Homepage = () => {
       <TotalOwned action />
       <CardList>
         {/* todo handle loading */}
-        {loading
-          ? "is-loading"
-          : data.pokemons.results.map(({ name, image, id }) => (
-              <Card
-                key={id}
-                name={name}
-                image={image}
-                onClick={() => history.push(`/pokemon/${name}`)}
-                owned={
-                  ownedPokemons.filter((item) => item.species === name).length
-                }
-              />
-            ))}
+        {loading ? (
+          <Loading text="Please wait..." />
+        ) : (
+          data.pokemons.results.map(({ name, image, id }) => (
+            <Card
+              key={id}
+              name={name}
+              image={image}
+              onClick={() => history.push(`/pokemon/${name}`)}
+              owned={
+                ownedPokemons.filter((item) => item.species === name).length
+              }
+            />
+          ))
+        )}
       </CardList>
     </Page>
   );

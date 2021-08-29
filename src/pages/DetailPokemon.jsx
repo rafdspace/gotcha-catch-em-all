@@ -12,6 +12,7 @@ import { useState } from "react";
 import Pokeball from "../components/Pokeball";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Loading from "../components/Loading";
 
 const DetailWrapper = styled.div`
   padding: 10px;
@@ -22,6 +23,21 @@ const DetailWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+`;
+
+const DetailLoading = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 4;
+  background-color: #222629;
+  display: flex;
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  ${({ isLoading }) => !isLoading && "top:100%; opacity:0; visibility:hidden;"}
 `;
 
 const DetailPokemon = () => {
@@ -47,6 +63,9 @@ const DetailPokemon = () => {
   return (
     <Page>
       <DetailWrapper>
+        <DetailLoading isLoading={loading}>
+          <Loading text="Please wait..." />
+        </DetailLoading>
         <Pokeball />
         <DisplayPokemon data={data?.pokemon} loading={loading} />
         <TabsDetail
