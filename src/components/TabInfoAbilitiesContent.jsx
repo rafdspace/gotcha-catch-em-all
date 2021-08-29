@@ -34,7 +34,7 @@ const TabInfoAbilitiesContent = ({ ability }) => {
   const description = data?.ability.response.effect_entries.find(
     (item) => item.language.name === "en"
   );
-  console.log(data);
+
   if (loading) return null;
 
   return (

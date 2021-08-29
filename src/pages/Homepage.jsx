@@ -13,7 +13,7 @@ const Homepage = () => {
 
   return (
     <Page>
-      <TotalOwned />
+      <TotalOwned action />
       <CardList>
         {/* todo handle loading */}
         {loading

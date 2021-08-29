@@ -23,14 +23,16 @@ const TotalOwnedText = styled.h4`
 
 const TotalOwnedActions = styled.div``;
 
-const TotalOwned = () => {
+const TotalOwned = ({ action }) => {
   return (
     <TotalOwnedWrapper>
       <TotalOwnedContent>
         <TotalOwnedText>You owned 0 Pokemon</TotalOwnedText>
-        <TotalOwnedActions>
-          <Button color="#ffc500" text="Manage" />
-        </TotalOwnedActions>
+        {action && (
+          <TotalOwnedActions>
+            <Button color="#ffc500" text="Manage" />
+          </TotalOwnedActions>
+        )}
       </TotalOwnedContent>
     </TotalOwnedWrapper>
   );

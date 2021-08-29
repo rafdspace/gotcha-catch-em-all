@@ -70,7 +70,7 @@ const TabInfo = ({ data, loading }) => {
   return (
     <TabInfoWrapper>
       <TabInfoStats>
-        <TabInfoTitle>Stats</TabInfoTitle>
+        <TabInfoTitle>Status</TabInfoTitle>
         <TabInfoStatsLists>
           {!loading &&
             data.stats.map((item, index) => (
@@ -84,15 +84,12 @@ const TabInfo = ({ data, loading }) => {
         </TabInfoStatsLists>
         <TabInfoTitle>Abilities</TabInfoTitle>
         <TabInfoAbilitiesLists>
-          <TabInfoAbilitiesItem>
-            {!loading &&
-              data.abilities.map((item, index) => (
-                <TabInfoAbilitiesContent
-                  key={index}
-                  ability={item.ability.name}
-                />
-              ))}
-          </TabInfoAbilitiesItem>
+          {!loading &&
+            data.abilities.map((item, index) => (
+              <TabInfoAbilitiesItem key={index}>
+                <TabInfoAbilitiesContent ability={item.ability.name} />
+              </TabInfoAbilitiesItem>
+            ))}
         </TabInfoAbilitiesLists>
       </TabInfoStats>
     </TabInfoWrapper>
