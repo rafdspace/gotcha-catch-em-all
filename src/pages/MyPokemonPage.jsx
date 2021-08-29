@@ -8,12 +8,23 @@ import { useSelector } from "react-redux";
 
 const MyPokemonPage = () => {
   const ownedPokemons = useSelector((state) => state.ownedPokemons);
+
+  const handleRelease = () => {
+    console.log("click");
+  };
+
   return (
     <Page>
       <TotalOwned />
       <CardList>
         {ownedPokemons.map((item, index) => (
-          <Card key={index} name={item.name} image={item.sprite} />
+          <Card
+            key={index}
+            name={item.name}
+            image={item.sprite}
+            disabled
+            onRelease={handleRelease}
+          />
         ))}
       </CardList>
     </Page>

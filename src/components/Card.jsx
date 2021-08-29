@@ -18,7 +18,6 @@ const CardWrapper = styled.div`
 
 const CardContent = styled.div`
   flex: 1;
-  cursor: pointer;
   margin: 5px;
   padding: 3px;
   background: whitesmoke;
@@ -26,9 +25,16 @@ const CardContent = styled.div`
   border-radius: 5px;
   transition: 275ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover {
-    transform: translateY(-2px);
-  }
+  ${({ disabled }) =>
+    !disabled
+      ? `
+      cursor: pointer; 
+      &:hover {
+        transform: translateY(-2px);
+      }`
+      : ""}// &:hover {
+  //   transform: translateY(-2px);
+  // }
 `;
 
 const CardInner = styled.div`
@@ -81,10 +87,10 @@ const CardCaption = styled.p`
   border-bottom-right-radius: 5px;
 `;
 
-const Card = ({ name, image, owned, onClick }) => {
+const Card = ({ name, image, owned, disabled, onClick }) => {
   return (
-    <CardWrapper onClick={() => onClick()}>
-      <CardContent>
+    <CardWrapper onClick={() => !disabled && onClick()}>
+      <CardContent disabled={disabled}>
         <CardInner owned>
           <CardTitle>{name}</CardTitle>
           <CardImage>
