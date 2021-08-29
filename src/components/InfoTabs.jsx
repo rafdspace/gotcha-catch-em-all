@@ -24,10 +24,11 @@ const InfoTabsItem = styled.div`
 `;
 
 const Item = styled.div`
+  width: 100%;
   position: relative;
   color: ${({ color }) => color};
   text-align: center;
-  flex-basis: calc(100% / 3);
+  text-transform: capitalize;
   font-size: 12px;
   margin: 0 3px;
   padding: 10px 0;
@@ -49,16 +50,16 @@ const InfoTabsContent = styled.div`
   padding: 12px 10px 10px 10px;
 `;
 
-const InfoTabs = ({ children }) => {
+const InfoTabs = ({ data, changeTab, children }) => {
   return (
     <InfoTabsWrapper>
       <InfoTabsInner>
         <InfoTabsItem>
-          <Item color="#E3350D">Info</Item>
-          <Item isActive color="#30A7D7">
-            Moves
-          </Item>
-          <Item color="#4DAD5B">Owned</Item>
+          {data.map(({ tab, color }, index) => (
+            <Item key={index} color={color} onClick={() => changeTab(index)}>
+              {tab}
+            </Item>
+          ))}
         </InfoTabsItem>
         <InfoTabsContent>{children}</InfoTabsContent>
       </InfoTabsInner>
