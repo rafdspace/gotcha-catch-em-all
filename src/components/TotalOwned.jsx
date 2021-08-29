@@ -26,8 +26,6 @@ const TotalOwnedText = styled.h4`
   letter-spacing: 1px;
 `;
 
-const TotalOwnedActions = styled.div``;
-
 const TotalOwned = ({ action }) => {
   const history = useHistory();
   return (
