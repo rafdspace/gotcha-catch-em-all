@@ -30,6 +30,13 @@ const initialState = {
 
 const globalReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "RELEASE_POKEMON":
+      return {
+        ...state,
+        ownedPokemons: state.ownedPokemons.filter(
+          (item) => item.name !== action.payload
+        ),
+      };
     default:
       return state;
   }

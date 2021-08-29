@@ -1,16 +1,17 @@
 import React from "react";
-import styled from "@emotion/styled";
 import Page from "../layouts/Page";
 import TotalOwned from "../components/TotalOwned";
 import CardList from "../components/CardList";
 import Card from "../components/Card";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { releasePokemon } from "../store/globalAction";
 
 const MyPokemonPage = () => {
   const ownedPokemons = useSelector((state) => state.ownedPokemons);
+  const dispatch = useDispatch();
 
-  const handleRelease = () => {
-    console.log("click");
+  const handleRelease = (name) => {
+    dispatch(releasePokemon(name));
   };
 
   return (

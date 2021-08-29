@@ -32,9 +32,7 @@ const CardContent = styled.div`
       &:hover {
         transform: translateY(-2px);
       }`
-      : ""}// &:hover {
-  //   transform: translateY(-2px);
-  // }
+      : ""}
 `;
 
 const CardInner = styled.div`
@@ -85,9 +83,19 @@ const CardCaption = styled.p`
   font-size: 10px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  transition: 275ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  ${({ release }) =>
+    release
+      ? `
+      cursor: pointer; 
+      &:hover {
+        background-color: #d2a200;
+      }`
+      : ""}
 `;
 
-const Card = ({ name, image, owned, disabled, onClick }) => {
+const Card = ({ name, image, owned, disabled, onClick, onRelease }) => {
   return (
     <CardWrapper onClick={() => !disabled && onClick()}>
       <CardContent disabled={disabled}>
@@ -97,6 +105,11 @@ const Card = ({ name, image, owned, disabled, onClick }) => {
             <img src={image} alt={name} />
           </CardImage>
           {!!owned && <CardCaption>Owned: {owned}</CardCaption>}
+          {onRelease && (
+            <CardCaption release onClick={() => onRelease(name)}>
+              Release
+            </CardCaption>
+          )}
         </CardInner>
       </CardContent>
     </CardWrapper>
