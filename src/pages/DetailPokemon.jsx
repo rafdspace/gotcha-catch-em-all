@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import DisplayPokemon from "../components/DisplayPokemon";
 import { useQuery } from "@apollo/client";
 import GET_POKEMON_DETAIL from "../graphql/getPokemonDetail";
-import InfoTabs from "../components/InfoTabs";
+import TabsDetail from "../components/TabsDetail";
 import TabMove from "../components/TabMove";
 import TabInfo from "../components/TabInfo";
 import TabOwned from "../components/TabOwned";
@@ -45,7 +45,7 @@ const DetailPokemon = () => {
       <DetailWrapper>
         <Pokeball />
         <DisplayPokemon data={data?.pokemon} loading={loading} />
-        <InfoTabs
+        <TabsDetail
           data={dataTabs}
           currentTab={tabActive}
           changeTab={onChangeTab}
@@ -57,7 +57,7 @@ const DetailPokemon = () => {
           ) : (
             <TabOwned />
           )}
-        </InfoTabs>
+        </TabsDetail>
       </DetailWrapper>
     </Page>
   );

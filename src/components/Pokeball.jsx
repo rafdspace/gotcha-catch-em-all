@@ -56,7 +56,7 @@ const PokeballBgText = styled.p`
 `;
 
 const Pokeball = () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   return (
     <PokeballWrapper>

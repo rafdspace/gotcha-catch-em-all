@@ -29,8 +29,6 @@ const TabInfoAbilitiesContent = ({ ability }) => {
     variables: { ability },
   });
 
-  console.log("data", data);
-
   const title = data?.ability.response.name;
 
   const description = data?.ability.response.effect_entries.find(

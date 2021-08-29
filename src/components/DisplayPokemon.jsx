@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { typeColor } from "../helpers/typeColor";
 
 const DisplayPokemonWrapper = styled.div`
   display: flex;
@@ -65,7 +66,7 @@ const DisplayPokemonTypeItem = styled.div`
     monospace;
   letter-spacing: 1.2px;
   font-size: 8px;
-  background: blue;
+  background: ${({ color }) => color};
   border-radius: 20px;
   border: 1px solid;
 
@@ -94,7 +95,10 @@ const DisplayPokemon = ({ data, loading }) => {
           <DisplayPokemonType>
             {!loading
               ? data.types.map((item, index) => (
-                  <DisplayPokemonTypeItem key={index}>
+                  <DisplayPokemonTypeItem
+                    key={index}
+                    color={typeColor(item.type.name)}
+                  >
                     {item.type.name}
                   </DisplayPokemonTypeItem>
                 ))

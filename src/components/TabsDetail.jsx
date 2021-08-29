@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const InfoTabsWrapper = styled.div`
+const TabsDetailWrapper = styled.div`
   margin-top: 8px;
   flex: 1;
   background-color: #383838;
@@ -9,14 +9,14 @@ const InfoTabsWrapper = styled.div`
   border-bottom-left-radius: 5px;
 `;
 
-const InfoTabsInner = styled.div`
+const TabsDetailInner = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden auto;
 `;
 
-const InfoTabsItem = styled.div`
+const TabsDetailItem = styled.div`
   background: #efefef;
   display: flex;
   border-bottom-left-radius: 5px;
@@ -45,16 +45,16 @@ const Item = styled.div`
   }
 `;
 
-const InfoTabsContent = styled.div`
+const TabsDetailContent = styled.div`
   background-color: #383838;
   padding: 12px 10px 10px 10px;
 `;
 
-const InfoTabs = ({ data, currentTab, changeTab, children }) => {
+const TabsDetail = ({ data, currentTab, changeTab, children }) => {
   return (
-    <InfoTabsWrapper>
-      <InfoTabsInner>
-        <InfoTabsItem>
+    <TabsDetailWrapper>
+      <TabsDetailInner>
+        <TabsDetailItem>
           {data.map(({ tab, color }, index) => (
             <Item
               key={index}
@@ -65,11 +65,11 @@ const InfoTabs = ({ data, currentTab, changeTab, children }) => {
               {tab}
             </Item>
           ))}
-        </InfoTabsItem>
-        <InfoTabsContent>{children}</InfoTabsContent>
-      </InfoTabsInner>
-    </InfoTabsWrapper>
+        </TabsDetailItem>
+        <TabsDetailContent>{children}</TabsDetailContent>
+      </TabsDetailInner>
+    </TabsDetailWrapper>
   );
 };
 
-export default InfoTabs;
+export default TabsDetail;
