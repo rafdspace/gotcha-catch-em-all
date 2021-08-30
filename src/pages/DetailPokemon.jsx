@@ -45,48 +45,53 @@ const DetailLoading = styled.div`
 
 const ModalContent = styled.div`
   display: flex;
-  width: 100%;
   flex-direction: column;
 
-  & > input {
-    margin-bottom: 5px;
+  & > div > input {
+    margin: 0 5px 25px 5px;
   }
 
   & > div {
     display: flex;
-    margin: 0 -5px;
+    margin: 5px -5px 0 -5px;
 
     & > button {
-      margin: 5px 5px 0 5px;
+      margin: 0 5px;
     }
   }
 `;
 
 const DetailPokemon = () => {
   const { species } = useParams();
+
+  const { data, loading } = useQuery(GET_POKEMON_DETAIL, {
+    variables: { name: species },
+  });
+
   const [tabActive, setTabActive] = useState(0);
   const [modal, setModal] = useState("catch-success");
   const [pokemonName, setPokemonName] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const dataTabs = [
     { tab: "info", color: "#E3350D" },
     { tab: "moves", color: "#30A7D7" },
     { tab: "owned", color: "#4DAD5B" },
   ];
+
+  const ownedPokemonsName = useSelector((state) => state.ownedPokemons).map(
+    (item) => item.name
+  );
+
   const ownedPokemon = useSelector((state) => state.ownedPokemons).filter(
     (item) => item.species === species
   );
-
-  const { data, loading } = useQuery(GET_POKEMON_DETAIL, {
-    variables: { name: species },
-  });
 
   const onChangeTab = (tab) => {
     setTabActive(tab);
   };
 
   const onCatch = async () => {
-    console.log("catch");
     setModal("catch-loading");
     await setTimeout(function () {
       if (Math.random() < 0.5) setModal("catch-failed");
@@ -95,7 +100,16 @@ const DetailPokemon = () => {
   };
 
   const onKeep = () => {
+    if (ownedPokemonsName.includes(pokemonName)) {
+      setErrorMsg("Please choose another name!");
+      return;
+    }
     console.log(pokemonName);
+  };
+
+  const handleChangeName = (e) => {
+    setErrorMsg("");
+    setPokemonName(e);
   };
 
   return (
@@ -119,9 +133,11 @@ const DetailPokemon = () => {
             <TabOwned data={ownedPokemon} />
           )}
         </TabsDetail>
+
         <Modal show={modal === "catch-loading"}>
           <Loading text="Catching Pokemon..." />
         </Modal>
+
         <Modal
           show={modal === "catch-success"}
           title="gotcha"
@@ -129,13 +145,14 @@ const DetailPokemon = () => {
         >
           <ModalContent>
             <InputField
+              errorMsg={errorMsg}
               value={pokemonName}
               type="text"
               placeholder="Your pokemon name"
-              handleChange={(e) => setPokemonName(e)}
+              handleChange={handleChangeName}
             />
             <div>
-              <Button text="Keep" onClick={onKeep} />
+              <Button isDisabled={!pokemonName} text="Keep" onClick={onKeep} />
               <Button
                 text="Release"
                 onClick={() => setModal("")}
@@ -144,6 +161,7 @@ const DetailPokemon = () => {
             </div>
           </ModalContent>
         </Modal>
+
         <Modal
           show={modal === "catch-failed"}
           title="uh-oh"
