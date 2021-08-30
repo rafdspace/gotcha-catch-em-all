@@ -17,3 +17,10 @@ export const closeCatchInfo = () => {
     type: "CLOSE_CATCH_INFO",
   };
 };
+
+export const setOffset = (offset) => {
+  return {
+    type: "SET_OFFSET",
+    payload: offset,
+  };
+};
