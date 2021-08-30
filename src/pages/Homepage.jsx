@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CardList from "../components/CardList";
 import TotalOwned from "../components/TotalOwned";
 import Page from "../layouts/Page";
@@ -34,10 +34,9 @@ const Homepage = () => {
   const { data, loading } = useQuery(GET_POKEMONS, {
     variables: { limit: limit, offset: currentOffset },
   });
-  console.log(data);
   return (
     <Page>
-      <TotalOwned action />
+      <TotalOwned />
       <CardList isLoading={loading}>
         {loading ? (
           <Loading text="Please wait..." />

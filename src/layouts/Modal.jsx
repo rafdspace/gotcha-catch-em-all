@@ -11,6 +11,8 @@ const ModalWrapper = styled.div`
   display: flex;
   align-item: center;
   justify-content: center;
+  background: rgba(34 38 41 / 0.5);
+
   transition: 275ms cubic-bezier(0.4, 0, 0.2, 1);
 
   opacity: ${({ isShow }) => (isShow ? "1" : "0")};

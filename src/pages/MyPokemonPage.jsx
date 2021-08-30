@@ -19,6 +19,11 @@ const ModalContent = styled.div`
   }
 `;
 
+const EmptyPlaceholder = styled.p`
+  text-align: center;
+  margin: auto;
+`;
+
 const MyPokemonPage = () => {
   const ownedPokemons = useSelector((state) => state.ownedPokemons);
   const [releasePokemonName, setReleasePokemonName] = useState("");
@@ -43,15 +48,19 @@ const MyPokemonPage = () => {
     <Page>
       <TotalOwned />
       <CardList>
-        {ownedPokemons.map((item, index) => (
-          <Card
-            key={index}
-            name={item.name}
-            image={item.sprite}
-            isDisabled
-            onRelease={handleRelease}
-          />
-        ))}
+        {ownedPokemons.length ? (
+          ownedPokemons.map((item, index) => (
+            <Card
+              key={index}
+              name={item.name}
+              image={item.sprite}
+              isDisabled
+              onRelease={handleRelease}
+            />
+          ))
+        ) : (
+          <EmptyPlaceholder>You don't have any pokemon yet!</EmptyPlaceholder>
+        )}
       </CardList>
       <Modal
         show={modal === "release-start"}
