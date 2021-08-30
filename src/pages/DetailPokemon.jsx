@@ -11,11 +11,12 @@ import TabOwned from "../components/TabOwned";
 import { useState } from "react";
 import Pokeball from "../components/Pokeball";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Loading from "../components/Loading";
 import Modal from "../layouts/Modal";
 import Button from "../components/Button";
 import InputField from "../components/InputField";
+import { keepPokemon } from "../store/globalAction";
 
 const DetailWrapper = styled.div`
   padding: 10px;
@@ -62,6 +63,8 @@ const ModalContent = styled.div`
 `;
 
 const DetailPokemon = () => {
+  const dispatch = useDispatch();
+
   const { species } = useParams();
 
   const { data, loading } = useQuery(GET_POKEMON_DETAIL, {
@@ -69,7 +72,7 @@ const DetailPokemon = () => {
   });
 
   const [tabActive, setTabActive] = useState(0);
-  const [modal, setModal] = useState("catch-success");
+  const [modal, setModal] = useState("");
   const [pokemonName, setPokemonName] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -92,6 +95,7 @@ const DetailPokemon = () => {
   };
 
   const onCatch = async () => {
+    setPokemonName("");
     setModal("catch-loading");
     await setTimeout(function () {
       if (Math.random() < 0.5) setModal("catch-failed");
@@ -104,12 +108,18 @@ const DetailPokemon = () => {
       setErrorMsg("Please choose another name!");
       return;
     }
-    console.log(pokemonName);
+    const newPokemon = {
+      species,
+      name: pokemonName,
+      sprite: data?.pokemon.sprites.front_default,
+    };
+    dispatch(keepPokemon(newPokemon));
+    setModal("catch-ended");
   };
 
   const handleChangeName = (e) => {
     setErrorMsg("");
-    setPokemonName(e);
+    setPokemonName(e.toUpperCase());
   };
 
   return (
@@ -136,6 +146,14 @@ const DetailPokemon = () => {
 
         <Modal show={modal === "catch-loading"}>
           <Loading text="Catching Pokemon..." />
+        </Modal>
+
+        <Modal
+          show={modal === "catch-ended"}
+          title="New friend"
+          description={`${pokemonName} is now your friend!`}
+        >
+          <Button text="Ok" onClick={() => setModal("")} />
         </Modal>
 
         <Modal
@@ -168,12 +186,14 @@ const DetailPokemon = () => {
           description={`You failed! Try harder!`}
         >
           <ModalContent>
-            <Button text="try again" onClick={onCatch} />
-            <Button
-              text="Leave"
-              onClick={() => setModal("")}
-              type="secondary"
-            />
+            <div>
+              <Button text="try again" onClick={onCatch} />
+              <Button
+                text="Leave"
+                onClick={() => setModal("")}
+                type="secondary"
+              />
+            </div>
           </ModalContent>
         </Modal>
       </DetailWrapper>

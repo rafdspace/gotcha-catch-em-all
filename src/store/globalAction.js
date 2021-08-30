@@ -4,3 +4,10 @@ export const releasePokemon = (name) => {
     payload: name,
   };
 };
+
+export const keepPokemon = (payload) => {
+  return {
+    type: "KEEP_POKEMON",
+    payload,
+  };
+};
