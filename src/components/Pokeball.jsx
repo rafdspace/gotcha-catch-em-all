@@ -2,7 +2,6 @@ import React from "react";
 import styled from "@emotion/styled";
 import PokeballImg from "../assets/pokeball.png";
 import Button from "./Button";
-import { useState } from "react";
 
 const PokeballWrapper = styled.div``;
 
@@ -11,10 +10,10 @@ const PokeballContent = styled.div`
   bottom: 0%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 3;
   width: 50px;
   height: 50px;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? null : "pointer")};
   border: 4px solid #ffc500;
   background-color: #ffc500;
   border-radius: 50%;
@@ -27,13 +26,15 @@ const PokeballBg = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  top: -100%;
+  top: 0;
   left: 0;
+  opacity: 0;
+  visibility: hidden;
   background: rgba(34 38 41 / 0.8);
-  z-index: 9;
-  transition: 275ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  ${({ isShow }) => isShow && `top: 0;`}
+  ${({ isShow }) => isShow && `opacity:1; visibility:visible;`}
 `;
 
 const PokeballBgContent = styled.div`
@@ -55,18 +56,16 @@ const PokeballBgText = styled.p`
   margin: 10px;
 `;
 
-const Pokeball = () => {
-  const [show, setShow] = useState(true);
-
+const Pokeball = ({ info, onClick, closeInfo }) => {
   return (
     <PokeballWrapper>
-      <PokeballBg isShow={show}>
+      <PokeballBg isShow={info}>
         <PokeballBgContent>
           <PokeballBgText>Click pokeball to catch this pokemon</PokeballBgText>
-          <Button text="ok" onClick={() => setShow(false)} />
+          <Button text="ok" onClick={() => closeInfo()} />
         </PokeballBgContent>
       </PokeballBg>
-      <PokeballContent></PokeballContent>
+      <PokeballContent disabled={info} onClick={() => !info && onClick()} />
     </PokeballWrapper>
   );
 };

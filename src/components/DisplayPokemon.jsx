@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { typeColor } from "../helpers/typeColor";
+import { convertStr } from "../helpers/convertString";
 
 const DisplayPokemonWrapper = styled.div`
   display: flex;
@@ -21,6 +23,7 @@ const DisplayPokemonInner = styled.div`
   background-image: linear-gradient(rgba(179, 42, 10, 0.4) 1px, transparent 1px),
     linear-gradient(to right, rgba(179, 42, 10, 0.4) 1px, transparent 1px);
   background-size: 10px 10px;
+  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,7 +41,7 @@ const DisplayPokemonTitle = styled.h4`
 const DisplayPokemonImage = styled.div`
   width: 100%;
   height: calc(100% - 100px);
-  margin: 5px 0;
+  margin: 10px 0;
   text-align: center;
   & > img {
     width: auto;
@@ -65,7 +68,7 @@ const DisplayPokemonTypeItem = styled.div`
     monospace;
   letter-spacing: 1.2px;
   font-size: 8px;
-  background: blue;
+  background: ${({ color }) => color};
   border-radius: 20px;
   border: 1px solid;
 
@@ -83,7 +86,9 @@ const DisplayPokemon = ({ data, loading }) => {
     <DisplayPokemonWrapper>
       <DisplayPokemonContent>
         <DisplayPokemonInner>
-          <DisplayPokemonTitle>{!loading ? data.name : ""}</DisplayPokemonTitle>
+          <DisplayPokemonTitle>
+            {!loading ? convertStr(data.name) : ""}
+          </DisplayPokemonTitle>
           <DisplayPokemonImage>
             {!loading ? (
               <img src={data.sprites.front_default} alt={"name"} />
@@ -92,13 +97,14 @@ const DisplayPokemon = ({ data, loading }) => {
             )}
           </DisplayPokemonImage>
           <DisplayPokemonType>
-            {!loading
-              ? data.types.map((item, index) => (
-                  <DisplayPokemonTypeItem key={index}>
-                    {item.type.name}
-                  </DisplayPokemonTypeItem>
-                ))
-              : null}
+            {data?.types.map((item, index) => (
+              <DisplayPokemonTypeItem
+                key={index}
+                color={typeColor(item.type.name)}
+              >
+                {item.type.name}
+              </DisplayPokemonTypeItem>
+            ))}
           </DisplayPokemonType>
         </DisplayPokemonInner>
       </DisplayPokemonContent>

@@ -18,7 +18,6 @@ const CardWrapper = styled.div`
 
 const CardContent = styled.div`
   flex: 1;
-  cursor: pointer;
   margin: 5px;
   padding: 3px;
   background: whitesmoke;
@@ -26,9 +25,14 @@ const CardContent = styled.div`
   border-radius: 5px;
   transition: 275ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover {
-    transform: translateY(-2px);
-  }
+  ${({ disabled }) =>
+    !disabled
+      ? `
+      cursor: pointer; 
+      &:hover {
+        transform: translateY(-2px);
+      }`
+      : ""}
 `;
 
 const CardInner = styled.div`
@@ -38,9 +42,11 @@ const CardInner = styled.div`
   background-image: linear-gradient(rgba(179, 42, 10, 0.4) 1px, transparent 1px),
     linear-gradient(to right, rgba(179, 42, 10, 0.4) 1px, transparent 1px);
   background-size: 10px 10px;
+  background-position: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
+  ${({ owned }) => (!owned ? `justify-content: space-between;` : "")}
 `;
 
 const CardTitle = styled.h5`
@@ -56,7 +62,7 @@ const CardTitle = styled.h5`
 const CardImage = styled.div`
   widht: 100%;
   height: 100px;
-  margin: 5px 0;
+  margin: 10px 0;
 
   & > img {
     width: 100%;
@@ -78,18 +84,33 @@ const CardCaption = styled.p`
   font-size: 10px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  transition: 275ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  ${({ release }) =>
+    release
+      ? `
+      cursor: pointer; 
+      &:hover {
+        background-color: #d2a200;
+      }`
+      : ""}
 `;
 
-const Card = ({ name, image, onClick }) => {
+const Card = ({ name, image, owned, isDisabled, onClick, onRelease }) => {
   return (
-    <CardWrapper onClick={() => onClick()}>
-      <CardContent>
-        <CardInner>
+    <CardWrapper onClick={() => !isDisabled && onClick()}>
+      <CardContent disabled={isDisabled}>
+        <CardInner owned>
           <CardTitle>{name}</CardTitle>
           <CardImage>
             <img src={image} alt={name} />
           </CardImage>
-          <CardCaption>Owned: 1</CardCaption>
+          {!!owned && <CardCaption>Owned: {owned}</CardCaption>}
+          {onRelease && (
+            <CardCaption release onClick={() => onRelease(name)}>
+              Release
+            </CardCaption>
+          )}
         </CardInner>
       </CardContent>
     </CardWrapper>

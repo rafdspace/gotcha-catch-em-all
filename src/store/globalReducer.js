@@ -1,9 +1,27 @@
 const initialState = {
-  data: [],
+  catchInfo: true,
+  ownedPokemons: [],
 };
 
 const globalReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "KEEP_POKEMON":
+      return {
+        ...state,
+        ownedPokemons: [action.payload, ...state.ownedPokemons],
+      };
+    case "RELEASE_POKEMON":
+      return {
+        ...state,
+        ownedPokemons: state.ownedPokemons.filter(
+          (item) => item.name !== action.payload
+        ),
+      };
+    case "CLOSE_CATCH_INFO":
+      return {
+        ...state,
+        catchInfo: false,
+      };
     default:
       return state;
   }

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import Button from "./Button";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const TotalOwnedWrapper = styled.div`
   padding: 10px;
@@ -26,14 +27,13 @@ const TotalOwnedText = styled.h4`
   letter-spacing: 1px;
 `;
 
-const TotalOwnedActions = styled.div``;
-
 const TotalOwned = ({ action }) => {
   const history = useHistory();
+  const ownedTotal = useSelector((state) => state.ownedPokemons).length;
   return (
     <TotalOwnedWrapper>
       <TotalOwnedContent>
-        <TotalOwnedText>You owned 0 Pokemon</TotalOwnedText>
+        <TotalOwnedText>You owned {ownedTotal} Pokemon</TotalOwnedText>
         {action && (
           <Button
             color="#ffc500"
