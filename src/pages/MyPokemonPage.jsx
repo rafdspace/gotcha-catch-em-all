@@ -48,7 +48,7 @@ const MyPokemonPage = () => {
             key={index}
             name={item.name}
             image={item.sprite}
-            disabled
+            isDisabled
             onRelease={handleRelease}
           />
         ))}

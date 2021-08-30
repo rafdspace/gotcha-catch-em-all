@@ -95,10 +95,10 @@ const CardCaption = styled.p`
       : ""}
 `;
 
-const Card = ({ name, image, owned, disabled, onClick, onRelease }) => {
+const Card = ({ name, image, owned, isDisabled, onClick, onRelease }) => {
   return (
-    <CardWrapper onClick={() => !disabled && onClick()}>
-      <CardContent disabled={disabled}>
+    <CardWrapper onClick={() => !isDisabled && onClick()}>
+      <CardContent disabled={isDisabled}>
         <CardInner owned>
           <CardTitle>{name}</CardTitle>
           <CardImage>

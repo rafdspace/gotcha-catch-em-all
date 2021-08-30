@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { typeColor } from "../helpers/typeColor";
+import { convertStr } from "../helpers/convertString";
 
 const DisplayPokemonWrapper = styled.div`
   display: flex;
@@ -84,7 +85,9 @@ const DisplayPokemon = ({ data, loading }) => {
     <DisplayPokemonWrapper>
       <DisplayPokemonContent>
         <DisplayPokemonInner>
-          <DisplayPokemonTitle>{!loading ? data.name : ""}</DisplayPokemonTitle>
+          <DisplayPokemonTitle>
+            {!loading ? convertStr(data.name) : ""}
+          </DisplayPokemonTitle>
           <DisplayPokemonImage>
             {!loading ? (
               <img src={data.sprites.front_default} alt={"name"} />
@@ -93,16 +96,14 @@ const DisplayPokemon = ({ data, loading }) => {
             )}
           </DisplayPokemonImage>
           <DisplayPokemonType>
-            {!loading
-              ? data.types.map((item, index) => (
-                  <DisplayPokemonTypeItem
-                    key={index}
-                    color={typeColor(item.type.name)}
-                  >
-                    {item.type.name}
-                  </DisplayPokemonTypeItem>
-                ))
-              : null}
+            {data?.types.map((item, index) => (
+              <DisplayPokemonTypeItem
+                key={index}
+                color={typeColor(item.type.name)}
+              >
+                {item.type.name}
+              </DisplayPokemonTypeItem>
+            ))}
           </DisplayPokemonType>
         </DisplayPokemonInner>
       </DisplayPokemonContent>

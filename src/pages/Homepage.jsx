@@ -8,6 +8,7 @@ import GET_POKEMONS from "../graphql/getPokemon";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Loading from "../components/Loading";
+import { convertStr } from "../helpers/convertString";
 
 const Homepage = () => {
   const history = useHistory();
@@ -26,7 +27,7 @@ const Homepage = () => {
           data.pokemons.results.map(({ name, image, id }) => (
             <Card
               key={id}
-              name={name}
+              name={convertStr(name)}
               image={image}
               onClick={() => history.push(`/pokemon/${name}`)}
               owned={

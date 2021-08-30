@@ -30,7 +30,7 @@ const TabOwned = ({ data }) => {
       ) : (
         <CardList>
           {data.map((item, index) => (
-            <Card key={index} name={item.name} image={item.sprite} disabled />
+            <Card key={index} name={item.name} image={item.sprite} isDisabled />
           ))}
         </CardList>
       )}
