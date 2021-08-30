@@ -14,7 +14,7 @@ const PokeballContent = styled.div`
   z-index: 3;
   width: 50px;
   height: 50px;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? null : "pointer")};
   border: 4px solid #ffc500;
   background-color: #ffc500;
   border-radius: 50%;
@@ -57,7 +57,7 @@ const PokeballBgText = styled.p`
   margin: 10px;
 `;
 
-const Pokeball = () => {
+const Pokeball = ({ onClick }) => {
   const [show, setShow] = useState(true);
 
   return (
@@ -68,7 +68,7 @@ const Pokeball = () => {
           <Button text="ok" onClick={() => setShow(false)} />
         </PokeballBgContent>
       </PokeballBg>
-      <PokeballContent></PokeballContent>
+      <PokeballContent disabled={show} onClick={() => !show && onClick()} />
     </PokeballWrapper>
   );
 };

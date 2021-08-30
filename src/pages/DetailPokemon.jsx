@@ -13,6 +13,9 @@ import Pokeball from "../components/Pokeball";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Loading from "../components/Loading";
+import Modal from "../layouts/Modal";
+import Button from "../components/Button";
+import InputField from "../components/InputField";
 
 const DetailWrapper = styled.div`
   padding: 10px;
@@ -40,9 +43,31 @@ const DetailLoading = styled.div`
   ${({ isLoading }) => !isLoading && "top:100%; opacity:0; visibility:hidden;"}
 `;
 
+const ModalContent = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  & > input {
+    margin-bottom: 5px;
+  }
+
+  & > div {
+    display: flex;
+    margin: 0 -5px;
+
+    & > button {
+      margin: 5px 5px 0 5px;
+    }
+  }
+`;
+
 const DetailPokemon = () => {
   const { species } = useParams();
   const [tabActive, setTabActive] = useState(0);
+  const [modal, setModal] = useState("catch-success");
+  const [pokemonName, setPokemonName] = useState("");
+
   const dataTabs = [
     { tab: "info", color: "#E3350D" },
     { tab: "moves", color: "#30A7D7" },
@@ -60,13 +85,26 @@ const DetailPokemon = () => {
     setTabActive(tab);
   };
 
+  const onCatch = async () => {
+    console.log("catch");
+    setModal("catch-loading");
+    await setTimeout(function () {
+      if (Math.random() < 0.5) setModal("catch-failed");
+      else setModal("catch-success");
+    }, 1500);
+  };
+
+  const onKeep = () => {
+    console.log(pokemonName);
+  };
+
   return (
     <Page>
       <DetailWrapper>
         <DetailLoading isLoading={loading}>
           <Loading text="Please wait..." />
         </DetailLoading>
-        <Pokeball />
+        <Pokeball onClick={onCatch} />
         <DisplayPokemon data={data?.pokemon} loading={loading} />
         <TabsDetail
           data={dataTabs}
@@ -81,6 +119,45 @@ const DetailPokemon = () => {
             <TabOwned data={ownedPokemon} />
           )}
         </TabsDetail>
+        <Modal show={modal === "catch-loading"}>
+          <Loading text="Catching Pokemon..." />
+        </Modal>
+        <Modal
+          show={modal === "catch-success"}
+          title="gotcha"
+          description={`You've captured a ${species.toUpperCase()}!!!`}
+        >
+          <ModalContent>
+            <InputField
+              value={pokemonName}
+              type="text"
+              placeholder="Your pokemon name"
+              handleChange={(e) => setPokemonName(e)}
+            />
+            <div>
+              <Button text="Keep" onClick={onKeep} />
+              <Button
+                text="Release"
+                onClick={() => setModal("")}
+                type="secondary"
+              />
+            </div>
+          </ModalContent>
+        </Modal>
+        <Modal
+          show={modal === "catch-failed"}
+          title="uh-oh"
+          description={`You failed! Try harder!`}
+        >
+          <ModalContent>
+            <Button text="try again" onClick={onCatch} />
+            <Button
+              text="Leave"
+              onClick={() => setModal("")}
+              type="secondary"
+            />
+          </ModalContent>
+        </Modal>
       </DetailWrapper>
     </Page>
   );
