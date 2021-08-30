@@ -13,12 +13,15 @@ const MyButton = styled.button`
   text-transform: capitalize;
   width: 100%;
   cursor: pointer;
-  background-color: ${(props) => props.color};
+  background-color: ${({ color }) => color};
+
+  ${({ type }) =>
+    type === "secondary" ? "background-color:transparent;color:#efefef" : null}
 `;
 
-const Button = ({ text, color, onClick }) => {
+const Button = ({ text, color, type, onClick }) => {
   return (
-    <MyButton color={color} onClick={() => onClick()}>
+    <MyButton color={color} type={type} onClick={() => onClick && onClick()}>
       {text}
     </MyButton>
   );
