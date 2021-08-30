@@ -23,6 +23,7 @@ const DisplayPokemonInner = styled.div`
   background-image: linear-gradient(rgba(179, 42, 10, 0.4) 1px, transparent 1px),
     linear-gradient(to right, rgba(179, 42, 10, 0.4) 1px, transparent 1px);
   background-size: 10px 10px;
+  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
