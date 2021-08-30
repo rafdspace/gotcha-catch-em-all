@@ -19,6 +19,7 @@ const HeaderWrapper = styled.div`
     ),
     linear-gradient(to right, rgba(179, 42, 10, 0.2) 1px, transparent 1px);
   background-size: 5px 5px;
+  background-position: center;
 `;
 
 const HeaderInner = styled.div`

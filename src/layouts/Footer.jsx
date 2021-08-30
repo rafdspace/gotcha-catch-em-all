@@ -11,6 +11,7 @@ const FooterWrapper = styled.div`
     ),
     linear-gradient(to right, rgba(178, 178, 178, 0.1) 1px, transparent 1px);
   background-size: 5px 5px;
+  background-position: center;
 `;
 
 const FooterInner = styled.div`
