@@ -16,7 +16,7 @@ import Loading from "../components/Loading";
 import Modal from "../layouts/Modal";
 import Button from "../components/Button";
 import InputField from "../components/InputField";
-import { keepPokemon } from "../store/globalAction";
+import { closeCatchInfo, keepPokemon } from "../store/globalAction";
 
 const DetailWrapper = styled.div`
   padding: 10px;
@@ -82,6 +82,8 @@ const DetailPokemon = () => {
     { tab: "owned", color: "#4DAD5B" },
   ];
 
+  const catchInfo = useSelector((state) => state.catchInfo);
+
   const ownedPokemonsName = useSelector((state) => state.ownedPokemons).map(
     (item) => item.name
   );
@@ -128,7 +130,11 @@ const DetailPokemon = () => {
         <DetailLoading isLoading={loading}>
           <Loading text="Please wait..." />
         </DetailLoading>
-        <Pokeball onClick={onCatch} />
+        <Pokeball
+          onClick={onCatch}
+          info={catchInfo}
+          closeInfo={() => dispatch(closeCatchInfo())}
+        />
         <DisplayPokemon data={data?.pokemon} loading={loading} />
         <TabsDetail
           data={dataTabs}

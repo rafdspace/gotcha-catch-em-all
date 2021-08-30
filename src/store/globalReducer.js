@@ -1,31 +1,6 @@
 const initialState = {
-  data: [],
-  ownedPokemons: [
-    {
-      species: "bulbasaur",
-      name: "bulba 1",
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-    },
-    {
-      species: "bulbasaur",
-      name: "bulba 2",
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-    },
-    {
-      species: "charizard",
-      name: "chari 1",
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-    },
-    {
-      species: "pidgeotto",
-      name: "pidgy 1",
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png",
-    },
-  ],
+  catchInfo: true,
+  ownedPokemons: [],
 };
 
 const globalReducer = (state = initialState, action) => {
@@ -41,6 +16,11 @@ const globalReducer = (state = initialState, action) => {
         ownedPokemons: state.ownedPokemons.filter(
           (item) => item.name !== action.payload
         ),
+      };
+    case "CLOSE_CATCH_INFO":
+      return {
+        ...state,
+        catchInfo: false,
       };
     default:
       return state;

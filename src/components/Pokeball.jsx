@@ -2,7 +2,6 @@ import React from "react";
 import styled from "@emotion/styled";
 import PokeballImg from "../assets/pokeball.png";
 import Button from "./Button";
-import { useState } from "react";
 
 const PokeballWrapper = styled.div``;
 
@@ -57,18 +56,16 @@ const PokeballBgText = styled.p`
   margin: 10px;
 `;
 
-const Pokeball = ({ onClick }) => {
-  const [show, setShow] = useState(true);
-
+const Pokeball = ({ info, onClick, closeInfo }) => {
   return (
     <PokeballWrapper>
-      <PokeballBg isShow={show}>
+      <PokeballBg isShow={info}>
         <PokeballBgContent>
           <PokeballBgText>Click pokeball to catch this pokemon</PokeballBgText>
-          <Button text="ok" onClick={() => setShow(false)} />
+          <Button text="ok" onClick={() => closeInfo()} />
         </PokeballBgContent>
       </PokeballBg>
-      <PokeballContent disabled={show} onClick={() => !show && onClick()} />
+      <PokeballContent disabled={info} onClick={() => !info && onClick()} />
     </PokeballWrapper>
   );
 };

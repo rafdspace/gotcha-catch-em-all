@@ -11,3 +11,9 @@ export const keepPokemon = (payload) => {
     payload,
   };
 };
+
+export const closeCatchInfo = () => {
+  return {
+    type: "CLOSE_CATCH_INFO",
+  };
+};
