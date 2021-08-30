@@ -14,6 +14,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import DetailPokemon from "./pages/DetailPokemon";
 import MyPokemonPage from "./pages/MyPokemonPage";
+
 const apllotClient = new ApolloClient({
   uri: "https://graphql-pokeapi.vercel.app/api/graphql",
   cache: new InMemoryCache(),

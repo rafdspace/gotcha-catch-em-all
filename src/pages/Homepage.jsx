@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CardList from "../components/CardList";
 import TotalOwned from "../components/TotalOwned";
 import Page from "../layouts/Page";
@@ -9,12 +9,27 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Loading from "../components/Loading";
 import { convertStr } from "../helpers/convertString";
+import styled from "@emotion/styled";
+import Button from "../components/Button";
+
+const ActionNav = styled.div`
+  display: flex;
+  margin: 20px 0;
+  justify-content: center;
+  flex-basis: 100%;
+
+  & > button {
+    width: 100px;
+    margin: 0 10px;
+  }
+`;
 
 const Homepage = () => {
   const history = useHistory();
+  const [offset, setOffset] = useState(0);
   const ownedPokemons = useSelector((state) => state.ownedPokemons);
   const { data, loading } = useQuery(GET_POKEMONS, {
-    variables: { limit: 1180, offset: 0 },
+    variables: { limit: 20, offset: offset },
   });
 
   return (
@@ -35,6 +50,17 @@ const Homepage = () => {
               }
             />
           ))
+        )}
+        {!loading && (
+          <ActionNav>
+            {!!offset && (
+              <Button
+                text="Back"
+                onClick={() => setOffset((old) => old - 20)}
+              />
+            )}
+            <Button text="Next" onClick={() => setOffset((old) => old + 20)} />
+          </ActionNav>
         )}
       </CardList>
     </Page>
