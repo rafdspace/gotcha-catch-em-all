@@ -39,7 +39,7 @@ const DisplayPokemonTitle = styled.h4`
 const DisplayPokemonImage = styled.div`
   width: 100%;
   height: calc(100% - 100px);
-  margin: 5px 0;
+  margin: 10px 0;
   text-align: center;
   & > img {
     width: auto;

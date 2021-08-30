@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "@emotion/styled";
 import CardList from "../components/CardList";
 import TotalOwned from "../components/TotalOwned";
 import Page from "../layouts/Page";
@@ -20,8 +19,7 @@ const Homepage = () => {
   return (
     <Page>
       <TotalOwned action />
-      <CardList>
-        {/* todo handle loading */}
+      <CardList isLoading={loading}>
         {loading ? (
           <Loading text="Please wait..." />
         ) : (

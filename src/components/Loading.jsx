@@ -6,7 +6,10 @@ const LoadingWrapper = styled.div`
   margin: auto;
   animation: blip 1s infinite ease-in-out;
   text-align: center;
-  background-color: #222629;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   @keyframes blip {
     0% {
       opacity: 0;

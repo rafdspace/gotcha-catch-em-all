@@ -16,6 +16,7 @@ const TabMovesItem = styled.p`
   border: 1px solid;
   text-transform: capitalize;
   font-size: 10px;
+
   @media screen and (min-width: 325px) {
     font-size: 12px;
   }
@@ -34,7 +35,7 @@ const TabMovesPlaceholder = styled.p`
 const TabMoves = ({ data }) => {
   return (
     <TabMovesWrapper>
-      {data.length === 0 ? (
+      {data?.moves.length === 0 ? (
         <TabMovesPlaceholder>Moves not found</TabMovesPlaceholder>
       ) : (
         data?.moves.map((item, index) => (

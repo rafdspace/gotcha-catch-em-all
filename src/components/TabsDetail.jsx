@@ -49,6 +49,8 @@ const TabsDetailContent = styled.div`
   flex: 1;
   background-color: #383838;
   padding: 12px 10px 10px 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 `;
 
 const TabsDetail = ({ data, currentTab, changeTab, children }) => {

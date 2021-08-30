@@ -16,13 +16,15 @@ const CardListWrapper = styled.div`
 const CardListContent = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -5px;
+  width: 100%;
+  height: ${({ isLoading }) => (isLoading ? "100%" : "fit-content")};
+  position: relative;
 `;
 
-const CardList = ({ children }) => {
+const CardList = ({ children, isLoading }) => {
   return (
     <CardListWrapper>
-      <CardListContent>{children}</CardListContent>
+      <CardListContent isLoading={isLoading}>{children}</CardListContent>
     </CardListWrapper>
   );
 };
