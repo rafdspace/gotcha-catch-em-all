@@ -22,36 +22,25 @@ const ModalContent = styled.div`
 const MyPokemonPage = () => {
   const ownedPokemons = useSelector((state) => state.ownedPokemons);
   const [releasePokemonName, setReleasePokemonName] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  const [modal, setModal] = useState("");
   const dispatch = useDispatch();
 
   const handleRelease = (name) => {
     setReleasePokemonName(name);
-    setShowModal(true);
+    setModal("release-start");
   };
 
   const onRelease = () => {
     dispatch(releasePokemon(releasePokemonName));
-    setReleasePokemonName("name");
-    setShowModal(false);
+    setModal("release-ended");
   };
 
   const onCancel = () => {
-    setShowModal(false);
+    setModal("");
   };
 
   return (
     <Page>
-      <Modal
-        show={showModal}
-        title="Release"
-        description={`Are you sure  want to release ${releasePokemonName}`}
-      >
-        <ModalContent>
-          <Button text="Release" onClick={onRelease} />
-          <Button text="Cancel" onClick={onCancel} type="secondary" />
-        </ModalContent>
-      </Modal>
       <TotalOwned />
       <CardList>
         {ownedPokemons.map((item, index) => (
@@ -64,6 +53,23 @@ const MyPokemonPage = () => {
           />
         ))}
       </CardList>
+      <Modal
+        show={modal === "release-start"}
+        title="Release"
+        description={`Are you sure  want to release ${releasePokemonName}`}
+      >
+        <ModalContent>
+          <Button text="Release" onClick={onRelease} />
+          <Button text="Cancel" onClick={onCancel} type="secondary" />
+        </ModalContent>
+      </Modal>
+      <Modal
+        show={modal === "release-ended"}
+        title="Free"
+        description={`You set ${releasePokemonName} free!`}
+      >
+        <Button text="Ok" onClick={() => setModal("")} />
+      </Modal>
     </Page>
   );
 };
