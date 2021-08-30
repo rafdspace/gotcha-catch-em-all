@@ -1,6 +1,7 @@
 const initialState = {
   catchInfo: true,
   ownedPokemons: [],
+  currentOffset: 0,
 };
 
 const globalReducer = (state = initialState, action) => {
@@ -21,6 +22,11 @@ const globalReducer = (state = initialState, action) => {
       return {
         ...state,
         catchInfo: false,
+      };
+    case "SET_OFFSET":
+      return {
+        ...state,
+        currentOffset: action.payload,
       };
     default:
       return state;

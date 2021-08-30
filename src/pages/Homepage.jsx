@@ -6,11 +6,12 @@ import Card from "../components/Card";
 import { useQuery } from "@apollo/client";
 import GET_POKEMONS from "../graphql/getPokemon";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Loading from "../components/Loading";
 import { convertStr } from "../helpers/convertString";
 import styled from "@emotion/styled";
 import Button from "../components/Button";
+import { setOffset } from "../store/globalAction";
 
 const ActionNav = styled.div`
   display: flex;
@@ -26,12 +27,14 @@ const ActionNav = styled.div`
 
 const Homepage = () => {
   const history = useHistory();
-  const [offset, setOffset] = useState(0);
+  const dispatch = useDispatch();
+  const limit = 20;
   const ownedPokemons = useSelector((state) => state.ownedPokemons);
+  const currentOffset = useSelector((state) => state.currentOffset);
   const { data, loading } = useQuery(GET_POKEMONS, {
-    variables: { limit: 20, offset: offset },
+    variables: { limit: limit, offset: currentOffset },
   });
-
+  console.log(data);
   return (
     <Page>
       <TotalOwned action />
@@ -53,13 +56,18 @@ const Homepage = () => {
         )}
         {!loading && (
           <ActionNav>
-            {!!offset && (
+            {!!currentOffset && (
               <Button
                 text="Back"
-                onClick={() => setOffset((old) => old - 20)}
+                onClick={() => dispatch(setOffset(currentOffset - limit))}
               />
             )}
-            <Button text="Next" onClick={() => setOffset((old) => old + 20)} />
+            {!(currentOffset + limit > data?.pokemons.count) && (
+              <Button
+                text="Next"
+                onClick={() => dispatch(setOffset(currentOffset + limit))}
+              />
+            )}
           </ActionNav>
         )}
       </CardList>
