@@ -17,6 +17,7 @@ import Modal from "../layouts/Modal";
 import Button from "../components/Button";
 import InputField from "../components/InputField";
 import { closeCatchInfo, keepPokemon } from "../store/globalAction";
+import { convertStr } from "../helpers/convertString";
 
 const DetailWrapper = styled.div`
   padding: 10px;
@@ -167,7 +168,9 @@ const DetailPokemon = () => {
         <Modal
           show={modal === "catch-success"}
           title="gotcha"
-          description={`You've captured a ${species.toUpperCase()}!!!`}
+          description={`You've captured a ${convertStr(
+            species
+          ).toUpperCase()}!!!`}
         >
           <ModalContent>
             <InputField

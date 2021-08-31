@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Pokemon - Gotta Catch 'em All
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web-app used for collecting pokemons created using Create-React-App with PWA (progressive web application). The design is inspired by [Pokemon Wiki - Fandom](https://pokemon.fandom.com/wiki/Pok%C3%A9mon_Wiki).
 
-## Available Scripts
+![alt text](https://github.com/rafdianr/gotcha-catch-em-all/blob/development/public/ss.png?raw=true)
 
-In the project directory, you can run:
+## Homepage
 
-### `yarn start`
+https://pokemon-rafdian.netlify.app/ (deployed by Netlify)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Pages
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `/` - Homepage
 
-### `yarn test`
+Page shows a list pokemons that can be captured. In this page a list of pokemon card consists of name, image, and total of pokemons you have.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `/pokemon/:species` - Detail pokemon page
 
-### `yarn build`
+Page shows the detail of pokemon you choose from homepage. In this page you can see detail information about a pokemon consists of status, abilities, moves, and name of the pokemon you have. From this page you can also try to capture the pokemon with 50% chance of success and name it.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `/my-pokemon` - My pokemon page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Page shows a list of pokemon that you have. In this page you can see the name of the pokemon you have and you can release it.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tools
 
-### `yarn eject`
+- `graphql` using `@apollo/client` for accessing pokemon data from [PokeApi](https://github.com/mazipan/graphql-pokeapi)
+- `react-router-dom` for setting up routes
+- `react-redux` for managing state
+- `@emotion/styled` for styling components
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Folders
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Assets - for keeping images
+- Components - for keeping used components
+- Graphql - for creating queries
+- Helpers - for creating additional javascript code
+- Layout - for keeping components that can be used in every pages
+- Pages - for keeping components in a page
+- Store - for managing state and creating store
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Credits
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [The Unofficial GraphQL for PokeAPI](https://github.com/mazipan/graphql-pokeapi)
+- [Pokemon Wiki - Fandom](https://pokemon.fandom.com/wiki/Pok%C3%A9mon_Wiki)
