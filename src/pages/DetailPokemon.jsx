@@ -10,7 +10,7 @@ import TabInfo from "../components/TabInfo";
 import TabOwned from "../components/TabOwned";
 import { useState } from "react";
 import Pokeball from "../components/Pokeball";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../components/Loading";
 import Modal from "../layouts/Modal";
@@ -123,6 +123,8 @@ const DetailPokemon = () => {
     setErrorMsg("");
     setPokemonName(e.toUpperCase());
   };
+
+  if (!loading && !data.pokemon.status) return <Redirect to="/" />;
 
   return (
     <Page>
