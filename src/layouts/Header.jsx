@@ -68,8 +68,8 @@ const Header = () => {
           </Link>
           <HeaderNav>
             {location.pathname === "/my-pokemon" ? (
-              <HeaderNavItem onClick={() => history.push("/")}>
-                <div>Home</div>
+              <HeaderNavItem>
+                <Button text="Home" onClick={() => history.push("/")} />
               </HeaderNavItem>
             ) : (
               <HeaderNavItem>

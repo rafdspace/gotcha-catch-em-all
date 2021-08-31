@@ -8,6 +8,7 @@ const DisplayPokemonWrapper = styled.div`
   flex-direction: column;
   height: 40vh;
   width: 100%;
+  min-height: 200px;
 `;
 
 const DisplayPokemonContent = styled.div`
