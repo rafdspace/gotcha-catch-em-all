@@ -12,15 +12,15 @@ https://pokemon-rafdian.netlify.app/ (deployed by Netlify)
 
 ### `/` - Homepage
 
-Page showing a list pokemons that can be captured. In this page you can see a pokemon card list consist of name, image, and a total of pokemon you have.
+Page shows a list pokemons that can be captured. In this page a list of pokemon card consists of name, image, and total of pokemons you have.
 
 ### `/pokemon/:species` - Detail pokemon page
 
-Page showing a detail of pokemon you choose from homepage. In this page you can see detail information about a pokemon consist of status, abilities, moves, and name of the pokemon you have. From this page you can also try to capture the pokemon with 50% chance of success and named it.
+Page shows the detail of pokemon you choose from homepage. In this page you can see detail information about a pokemon consists of status, abilities, moves, and name of the pokemon you have. From this page you can also try to capture the pokemon with 50% chance of success and name it.
 
 ### `/my-pokemon` - My pokemon page
 
-Page showing a list of pokemons that we have. In this page you can see pokemon name you have and you can release it.
+Page shows a list of pokemon that you have. In this page you can see the name of the pokemon you have and you can release it.
 
 ## Tools
 
