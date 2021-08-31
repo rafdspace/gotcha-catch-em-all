@@ -29,7 +29,7 @@ const Footer = () => {
     <FooterWrapper>
       <ScreenContainer>
         <FooterInner>
-          <FooterInnerText>Made from Yogyakarta</FooterInnerText>
+          <FooterInnerText>Made from Yogyakarta – @rafdianr</FooterInnerText>
         </FooterInner>
       </ScreenContainer>
     </FooterWrapper>
