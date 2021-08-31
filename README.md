@@ -1,6 +1,6 @@
 # Pokemon - Gotta Catch 'em All
 
-A web-app used for collecting pokemons created using Create-React-App with PWA (progressive web application). The design is inspired from [Pokemon Wiki - Fandom](https://pokemon.fandom.com/wiki/Pok%C3%A9mon_Wiki).
+A web-app used for collecting pokemons created using Create-React-App with PWA (progressive web application). The design is inspired by [Pokemon Wiki - Fandom](https://pokemon.fandom.com/wiki/Pok%C3%A9mon_Wiki).
 
 ## Homepage
 
