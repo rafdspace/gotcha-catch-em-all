@@ -27,6 +27,16 @@ Page showing a list of pokemons that we have. In this page you can see pokemon n
 - `react-redux` for managing state
 - `@emotion/styled` for styling components
 
+## Folders
+
+- Assets - for keeping images
+- Components - for keeping used components
+- Graphql - for creating queries
+- Helpers - for creating additional javascript code
+- Layout - for keeping components that can be used in every pages
+- Pages - for keeping components in a page
+- Store - for managing state and creating store
+
 ## Credits
 
 - [The Unofficial GraphQL for PokeAPI](https://github.com/mazipan/graphql-pokeapi)
