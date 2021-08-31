@@ -3,9 +3,9 @@ import styled from "@emotion/styled";
 
 const TabMovesWrapper = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
+  height: ${({ fullHeight }) => (fullHeight ? "100%" : null)};
 `;
 
 const TabMovesItem = styled.p`
@@ -34,7 +34,7 @@ const TabMovesPlaceholder = styled.p`
 
 const TabMoves = ({ data }) => {
   return (
-    <TabMovesWrapper>
+    <TabMovesWrapper fullHeight={data?.moves.length === 0}>
       {data?.moves.length === 0 ? (
         <TabMovesPlaceholder>Moves not found</TabMovesPlaceholder>
       ) : (
