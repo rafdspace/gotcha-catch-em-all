@@ -12,7 +12,7 @@ https://pokemon-rafdian.netlify.app/ (deployed by Netlify)
 
 ### `/` - Homepage
 
-Page shows a list pokemons that can be captured. In this page a list of pokemon card consists of name, image, and total of pokemons you have.
+Page shows a list pokemons that can be captured. In this page you can see a list of pokemon cards consist of name, image, and total of pokemons you have.
 
 ### `/pokemon/:species` - Detail pokemon page
 
