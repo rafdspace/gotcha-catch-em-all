@@ -1,45 +1,30 @@
-# Pokemon - Gotta Catch 'em All
+# React + TypeScript + Vite
 
-A web-app used for collecting pokemons created using Create-React-App with PWA (progressive web application). The design is inspired by [Pokemon Wiki - Fandom](https://pokemon.fandom.com/wiki/Pok%C3%A9mon_Wiki).
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-![alt text](https://github.com/rafdianr/gotcha-catch-em-all/blob/development/public/ss.png?raw=true)
+Currently, two official plugins are available:
 
-## Homepage
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-https://pokemon-rafdian.netlify.app/ (deployed by Netlify)
+## Expanding the ESLint configuration
 
-## Pages
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-### `/` - Homepage
+- Configure the top-level `parserOptions` property like this:
 
-Page shows a list pokemons that can be captured. In this page you can see a list of pokemon cards consist of name, image, and total of pokemons you have.
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-### `/pokemon/:species` - Detail pokemon page
-
-Page shows the detail of pokemon you choose from homepage. In this page you can see detail information about a pokemon consists of status, abilities, moves, and name of the pokemon you have. From this page you can also try to capture the pokemon with 50% chance of success and name it.
-
-### `/my-pokemon` - My pokemon page
-
-Page shows a list of pokemon that you have. In this page you can see the name of the pokemon you have and you can release it.
-
-## Tools
-
-- `graphql` using `@apollo/client` for accessing pokemon data from [PokeApi](https://github.com/mazipan/graphql-pokeapi)
-- `react-router-dom` for setting up routes
-- `react-redux` for managing state
-- `@emotion/styled` for styling components
-
-## Folders
-
-- Assets - for keeping images
-- Components - for keeping used components
-- Graphql - for creating queries
-- Helpers - for creating additional javascript code
-- Layout - for keeping components that can be used in every pages
-- Pages - for keeping components in a page
-- Store - for managing state and creating store
-
-## Credits
-
-- [The Unofficial GraphQL for PokeAPI](https://github.com/mazipan/graphql-pokeapi)
-- [Pokemon Wiki - Fandom](https://pokemon.fandom.com/wiki/Pok%C3%A9mon_Wiki)
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
