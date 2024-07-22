@@ -2,11 +2,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ScreenWrapper from "../presentations/ScreenWrapper";
 import Header from "../presentations/Header";
 import Footer from "../presentations/Footer";
+import PokemonList from "../views/PokemonList";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Vite + React + Emotion</div>,
+    element: <PokemonList />,
   },
   {
     path: "/pokemon/:name",
@@ -23,7 +24,7 @@ const Routes = () => {
     <ScreenWrapper>
       <Header />
       <RouterProvider router={router} />
-      <Footer />
+      {/* <Footer /> */}
     </ScreenWrapper>
   );
 };

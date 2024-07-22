@@ -24,5 +24,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
+  "files": ["src/@types/graphql.d.ts"],
   "include": ["src"]
 }
