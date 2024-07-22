@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ScreenWrapper from "../presentations/ScreenWrapper";
 import Header from "../presentations/Header";
-import Footer from "../presentations/Footer";
 import PokemonList from "../views/PokemonList";
 
 const router = createBrowserRouter([
