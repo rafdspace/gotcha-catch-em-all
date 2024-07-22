@@ -1,5 +1,5 @@
 import { PokemonsQuery } from "../../__generated__/graphql";
-import { PokemonListItem } from "../../model/pokemon-list";
+import { PokemonListItem } from "../../entities/models/pokemon-list";
 
 type PokemonsQueryData = NonNullable<PokemonsQuery["pokemons"]>;
 type PokemonsResults = NonNullable<PokemonsQueryData["results"]>;
