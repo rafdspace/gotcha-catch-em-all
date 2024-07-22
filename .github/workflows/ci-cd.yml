@@ -3,11 +3,11 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
       - staging
   pull_request:
     branches:
-      - main
+      - master
       - staging
 
 jobs:
@@ -30,7 +30,7 @@ jobs:
         run: npm run build
 
       - name: Upload production artifacts
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         uses: actions/upload-artifact@v2
         with:
           name: production-build
@@ -48,5 +48,5 @@ jobs:
         run: vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy to Vercel (Production)
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         run: vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
