@@ -1,10 +1,7 @@
 import { css } from "@emotion/react";
 
 export const styPageWrapper = css`
-  flex: 1;
-
   width: 100%;
-  height: 100%;
   max-width: 1080px;
   margin: 75px auto 0;
 `;

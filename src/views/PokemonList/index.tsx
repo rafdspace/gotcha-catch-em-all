@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import useInfiniteScroll from "../../entities/hooks/useInfiniteScroll";
 import CardItem from "../../presentations/CardItem";
 import CardList from "../../presentations/CardList";
@@ -6,6 +7,8 @@ import TotalOwned from "../../presentations/TotalOwned";
 import { useGetPokemonList } from "../../usecases/useGetPokemonList";
 
 const PokemonList = () => {
+  const navigate = useNavigate();
+
   const {
     pokemonList,
     loading: loadingGetPokemonList,
@@ -13,9 +16,12 @@ const PokemonList = () => {
   } = useGetPokemonList();
 
   const loadMoreRef = useInfiniteScroll(() => {
-    console.log("trigger");
     handleLoadMore();
   }, loadingGetPokemonList);
+
+  const handleOpenPokemonDetail = (name: string) => {
+    navigate(`/pokemon/${name}`);
+  };
 
   return (
     <Page>
@@ -25,7 +31,7 @@ const PokemonList = () => {
           <CardItem
             name={item.name}
             image={item.image}
-            onClick={() => console.log("click card")}
+            onClick={() => handleOpenPokemonDetail(item.name)}
             // owned={2}
             key={`pokemon-${item.name}-${index}`}
           />
