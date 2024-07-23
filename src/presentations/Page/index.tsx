@@ -1,7 +1,7 @@
-import { type ReactElement } from "react";
+import { type ReactNode } from "react";
 import { styPageContent, styPageInner, styPageWrapper } from "./styles";
 
-const Page = ({ children }: { children: ReactElement[] }) => {
+const Page = ({ children }: { children: ReactNode }) => {
   return (
     <div css={styPageWrapper}>
       <div css={styPageInner}>
