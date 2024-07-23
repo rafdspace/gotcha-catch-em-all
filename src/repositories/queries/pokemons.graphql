@@ -1,4 +1,4 @@
-query GetPokemonsList($limit: Int, $offset: Int) {
+query pokemons($limit: Int, $offset: Int) {
   pokemons(limit: $limit, offset: $offset) {
     count
     next

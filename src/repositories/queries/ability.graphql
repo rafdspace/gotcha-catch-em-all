@@ -1,0 +1,8 @@
+query ability($ability: String!) {
+  ability(ability: $ability) {
+    params
+    status
+    message
+    response
+  }
+}
