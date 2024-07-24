@@ -25,7 +25,7 @@ const PokemonList = () => {
 
   return (
     <Page>
-      <TotalOwned />
+      <TotalOwned withAction />
       <CardList>
         {pokemonList.map((item, index) => (
           <CardItem
