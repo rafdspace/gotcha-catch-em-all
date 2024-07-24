@@ -1,32 +1,32 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ScreenWrapper from "../presentations/ScreenWrapper";
-import Header from "../presentations/Header";
 import PokemonList from "../views/PokemonList";
 import PokemonDetail from "../views/PokemonDetail";
+import MyPokemon from "../views/MyPokemon";
+import Layout from "./Layout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PokemonList />,
-  },
-  {
-    path: "/pokemon/:name",
-    element: <PokemonDetail />,
-  },
-  {
-    path: "/mypokemon",
-    element: <div>My Pokemon</div>,
+    element: <Layout />,
+    children: [
+      {
+        path: "",
+        element: <PokemonList />,
+      },
+      {
+        path: "pokemon/:name",
+        element: <PokemonDetail />,
+      },
+      {
+        path: "my-pokemon",
+        element: <MyPokemon />,
+      },
+    ],
   },
 ]);
 
 const Routes = () => {
-  return (
-    <ScreenWrapper>
-      <Header />
-      <RouterProvider router={router} />
-      {/* <Footer /> */}
-    </ScreenWrapper>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default Routes;
