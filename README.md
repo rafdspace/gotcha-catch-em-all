@@ -6,7 +6,7 @@ A web-app used for collecting pokemons created using Create-React-App with PWA (
 
 ## Homepage
 
-https://pokemon-rafdian.netlify.app/ (deployed by Netlify)
+https://pokedex-rafdian.vercel.app/
 
 ## Pages
 
