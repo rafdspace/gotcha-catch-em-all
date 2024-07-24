@@ -27,17 +27,18 @@ Page shows a list of pokemon that you have. In this page you can see the name of
 - `graphql` using `@apollo/client` for accessing pokemon data from [PokeApi](https://github.com/mazipan/graphql-pokeapi)
 - `react-router-dom` for setting up routes
 - `react-redux` for managing state
-- `@emotion/styled` for styling components
+- `@emotion/react` for styling components
 
 ## Folders
 
 - Assets - for keeping images
-- Components - for keeping used components
-- Graphql - for creating queries
-- Helpers - for creating additional javascript code
-- Layout - for keeping components that can be used in every pages
-- Pages - for keeping components in a page
-- Store - for managing state and creating store
+- Entities - for keeping shared types, constant, and functions
+- Presentations - for creating shared components
+- Repositories - for keeping queries and normalizer
+- Store - for keeping store
+- Routes - for keeping pages routes and layouts
+- Usecases - for keeping business logic used in code
+- Views - for keeping pages components
 
 ## Credits
 
