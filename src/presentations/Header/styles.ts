@@ -22,8 +22,6 @@ export const styHeaderInner = css`
   flex-direction: row;
   justify-content: space-between;
   padding: 15px;
-  width: 100%;
-  height: 100%;
   max-width: 1080px;
   margin: auto;
 `;
