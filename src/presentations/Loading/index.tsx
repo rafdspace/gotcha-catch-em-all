@@ -1,14 +1,17 @@
 import { css } from "@emotion/react";
 
-const styLoadingWrapper = css`
+const styLoadingWrapper = ({ isCentered }: { isCentered: boolean }) => css`
   width: 100%;
   margin: auto;
   animation: blip 1s infinite ease-in-out;
   text-align: center;
-  position: absolute;
+
+  ${isCentered &&
+  `position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);`}
+
   @keyframes blip {
     0% {
       opacity: 0;
@@ -24,10 +27,11 @@ const styLoadingWrapper = css`
 
 interface Props {
   text: string;
+  isCentered?: boolean;
 }
 
-const Loading = ({ text }: Props) => {
-  return <div css={styLoadingWrapper}>{text}</div>;
+const Loading = ({ text, isCentered = true }: Props) => {
+  return <div css={styLoadingWrapper({ isCentered })}>{text}</div>;
 };
 
 export default Loading;
