@@ -61,6 +61,7 @@ export const useGetPokemonList = () => {
   return {
     pokemonList: normalizePokemonList(data?.pokemons?.results),
     loading,
+    isLoadMore,
     handleLoadMore,
   };
 };
