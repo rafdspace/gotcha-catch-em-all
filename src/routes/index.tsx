@@ -3,6 +3,7 @@ import PokemonList from "../views/PokemonList";
 import PokemonDetail from "../views/PokemonDetail";
 import MyPokemon from "../views/MyPokemon";
 import Layout from "./Layout";
+import Test from "../views/Test";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "my-pokemon",
         element: <MyPokemon />,
+      },
+      {
+        path: "test-image",
+        element: <Test />,
       },
     ],
   },
