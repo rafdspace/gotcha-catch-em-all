@@ -2,7 +2,7 @@
 
 A web-app used for collecting pokemons created using Create-React-App with PWA (progressive web application). The design is inspired by [Pokemon Wiki - Fandom](https://pokemon.fandom.com/wiki/Pok%C3%A9mon_Wiki).
 
-![alt text](https://github.com/rafdianr/gotcha-catch-em-all/blob/development/public/ss.png?raw=true)
+<img width="1270" alt="Screenshot 2024-08-28 at 11 12 24" src="https://github.com/user-attachments/assets/652feeb8-6a1c-4d95-9cbd-0eb5d44d6045">
 
 ## Homepage
 
