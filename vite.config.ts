@@ -8,6 +8,7 @@ export default defineConfig({
     react({
       jsxImportSource: "@emotion/react",
     }),
+    // @ts-ignore
     graphql(),
     VitePWA({
       registerType: "autoUpdate",
