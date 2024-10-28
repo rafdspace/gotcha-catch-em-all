@@ -54,6 +54,9 @@ importers:
       '@rollup/plugin-graphql':
         specifier: ^2.0.4
         version: 2.0.5(graphql@16.9.0)(rollup@2.79.2)
+      '@types/node':
+        specifier: ^22.8.1
+        version: 22.8.1
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.12
@@ -84,6 +87,9 @@ importers:
       eslint-plugin-react-refresh:
         specifier: ^0.4.7
         version: 0.4.14(eslint@8.57.1)
+      i:
+        specifier: ^0.3.7
+        version: 0.3.7
       typescript:
         specifier: ^5.2.2
         version: 5.6.3
@@ -2291,6 +2297,10 @@ packages:
   https-proxy-agent@7.0.5:
     resolution: {integrity: sha512-1e4Wqeblerz+tMKPIq2EMGiiWW1dIjZOksyHWSUm1rmuvw/how9hBHZ38lAGj5ID4Ik6EdkOw7NmWPy6LAwalw==}
     engines: {node: '>= 14'}
+
+  i@0.3.7:
+    resolution: {integrity: sha512-FYz4wlXgkQwIPqhzC5TdNMLSE5+GS1IIDJZY/1ZiEPCT2S3COUVZeT5OW4BmW4r5LHLQuOosSwsvnroG9GR59Q==}
+    engines: {node: '>=0.4'}
 
   ico-endec@0.1.6:
     resolution: {integrity: sha512-ZdLU38ZoED3g1j3iEyzcQj+wAkY2xfWNkymszfJPoxucIUhK7NayQ+/C4Kv0nDFMIsbtbEHldv3V8PU494/ueQ==}
@@ -6382,6 +6392,8 @@ snapshots:
       debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
+
+  i@0.3.7: {}
 
   ico-endec@0.1.6: {}
 
