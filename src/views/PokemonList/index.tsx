@@ -8,8 +8,12 @@ import TotalOwned from "../../presentations/TotalOwned";
 import { useGetPokemonList } from "../../usecases/useGetPokemonList";
 import Loading from "../../presentations/Loading";
 import { RootState } from "../../store/configureStore";
+import Button from "../../presentations/Button";
+import { usePWAInstall } from "../../usecases/usePWAInstall";
 
 const PokemonList = () => {
+  const { isAppInstallable, installPWA } = usePWAInstall();
+
   const navigate = useNavigate();
   const ownedPokemons = useSelector((state: RootState) => state.ownedPokemons);
 
@@ -28,10 +32,9 @@ const PokemonList = () => {
     navigate(`/pokemon/${name}`);
   };
 
-  console.log({ isLoadMore });
-
   return (
     <Page>
+      <div style={{margin: '24px 0'}}>{isAppInstallable && <Button onClick={installPWA} text="Install PWA" />}</div>
       <TotalOwned withAction />
       <CardList>
         {loadingGetPokemonList && !isLoadMore && (
